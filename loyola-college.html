@@ -227,7 +227,7 @@ nav.scrolled { box-shadow: 0 4px 30px rgba(35,54,93,0.12); }
 
 /* ── SECTION COMMON ── */
 .section-eyebrow {
-  font-size: 10px; font-weight: 800; letter-spacing: 3.5px; text-transform: uppercase;
+  font-size: 12px; font-weight: 800; letter-spacing: 3.5px; text-transform: uppercase;
   color: var(--gold-dim); margin-bottom: 14px;
   display: flex; align-items: center; gap: 12px;
 }
@@ -458,7 +458,7 @@ nav.scrolled { box-shadow: 0 4px 30px rgba(35,54,93,0.12); }
 }
 .rank-card:hover { border-color:rgba(212,166,74,0.5); background:rgba(212,166,74,0.08); }
 .rank-title { font-size:10px; font-weight:800; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-bottom:10px; }
-.rank-val { font-family:'Playfair Display',serif; font-size:clamp(26px,4vw,40px); font-weight:900; color:var(--white); }
+.rank-val { font-family:'Playfair Display'; font-size:clamp(26px,4vw,40px); font-weight:900; color:var(--white); }
 .rank-val em { color:var(--gold); font-style:normal; font-size:70%; }
 .rank-sub { font-size:11px; color:rgba(255,255,255,0.4); margin-top:6px; }
 
@@ -712,10 +712,6 @@ footer { background: var(--blue-dark); border-top: 2px solid rgba(212,166,74,0.2
       <div class="hero-stat">
         <div class="num"><span id="h-c2">0</span><em>K+</em></div>
         <div class="lbl"><i class="fas fa-user-graduate" style="margin-right:4px;"></i>Students Enrolled</div>
-      </div>
-      <div class="hero-stat">
-        <div class="num"><span id="h-c3">0</span><em>+</em></div>
-        <div class="lbl"><i class="fas fa-chalkboard-teacher" style="margin-right:4px;"></i>Faculty Members</div>
       </div>
       <div class="hero-stat">
         <div class="num"><span id="h-c4">0</span><em>+</em></div>
@@ -1005,30 +1001,30 @@ footer { background: var(--blue-dark); border-top: 2px solid rgba(212,166,74,0.2
         <div class="ach-lbl">Students Enrolled</div>
       </div>
       <div class="ach-card reveal">
-        <div class="ach-icon"><i class="fas fa-chalkboard-teacher"></i></div>
-        <div class="ach-num"><span id="a-c2">0</span><sup>+</sup></div>
-        <div class="ach-lbl">Faculty Members</div>
-      </div>
-      <div class="ach-card reveal">
         <div class="ach-icon"><i class="fas fa-microscope"></i></div>
         <div class="ach-num"><span id="a-c3">0</span><sup>+</sup></div>
         <div class="ach-lbl">Ph.D. Research Scholars</div>
       </div>
       <div class="ach-card reveal">
-        <div class="ach-icon"><i class="fas fa-book-open"></i></div>
-        <div class="ach-num"><span id="a-c4">0</span><sup>+</sup></div>
-        <div class="ach-lbl">Programmes Offered</div>
+        <div class="ach-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+        <div class="ach-num"><span id="a-c2">0</span><sup>+</sup></div>
+        <div class="ach-lbl">Faculty Members</div>
       </div>
       <div class="ach-card reveal">
         <div class="ach-icon"><i class="fas fa-globe"></i></div>
         <div class="ach-num"><span id="a-c5">0</span><sup>+</sup></div>
-        <div class="ach-lbl">Global Alumni</div>
+        <div class="ach-lbl">Faculty with Ph.D</div>
+      </div>
+      <div class="ach-card reveal">
+        <div class="ach-icon"><i class="fas fa-book-open"></i></div>
+        <div class="ach-num"><span id="a-c4">0</span><sup>+</sup></div>
+        <div class="ach-lbl">Admin Staff</div>
       </div>
     </div>
     <div class="rankings-row">
       <div class="rank-card reveal">
         <div class="rank-title"><i class="fas fa-certificate" style="margin-right:5px;"></i>NAAC Accreditation</div>
-        <div class="rank-val">A<em>+</em></div>
+        <div class="rank-val">A<em>+++</em></div>
         <div class="rank-sub">Grade with Distinction</div>
       </div>
       <div class="rank-card reveal">
@@ -1043,7 +1039,7 @@ footer { background: var(--blue-dark); border-top: 2px solid rgba(212,166,74,0.2
       </div>
       <div class="rank-card reveal">
         <div class="rank-title"><i class="fas fa-map" style="margin-right:5px;"></i>Campus Area</div>
-        <div class="rank-val">99<em>ac</em></div>
+        <div class="rank-val">99<em> ac</em></div>
         <div class="rank-sub">Urban campus, Nungambakkam</div>
       </div>
     </div>
@@ -1062,7 +1058,7 @@ footer { background: var(--blue-dark); border-top: 2px solid rgba(212,166,74,0.2
       <div class="event-card reveal">
         <div class="event-date"><div class="event-day">31</div><div class="event-month">Jul 2024</div></div>
         <div class="event-body">
-          <span class="event-tag"><i class="fas fa-cross" style="margin-right:4px;"></i>Inaugural</span>
+          <span class="event-tag"><i class="fas fa-star" style="margin-right:4px;"></i>Inaugural</span>
           <div class="event-title">Solemn Eucharistic Celebration</div>
           <div class="event-desc">The centenary commenced with a sacred Eucharistic celebration, marking 100 years of faith, service and excellence in the Jesuit tradition.</div>
         </div>
@@ -1136,7 +1132,7 @@ footer { background: var(--blue-dark); border-top: 2px solid rgba(212,166,74,0.2
         <p>The defining phrase of Jesuit education. Loyola forms graduates who place service to others at the heart of their personal and professional lives.</p>
       </div>
       <div class="val-card reveal">
-        <div class="val-icon"><i class="fas fa-user-heart"></i></div>
+        <div class="val-icon"><i class="fa-solid fa-hand-holding-heart"></i></div>
         <h3>Cura Personalis</h3>
         <p>Care for the whole person — intellectual, emotional, spiritual and social. Every student is known, valued and guided in their unique journey of growth.</p>
       </div>
@@ -1181,19 +1177,28 @@ footer { background: var(--blue-dark); border-top: 2px solid rgba(212,166,74,0.2
       </div>
     </div>
     <div class="comm-img-grid reveal-right">
-      <!-- Replace these with real Google Drive image URLs -->
+      <!-- Image 1: Main Campus/Logo -->
       <div class="comm-img-card">
-        <img src="https://www.loyolacollege.edu/images/logo2.png" alt="Loyola Campus" style="object-fit:contain;padding:20px;" onerror="this.remove()">
+        <img src="https://lh3.googleusercontent.com/d/17Oh7Q9TlF7loXDYiGRmhtRNPbX0LFx3U" alt="Loyola Service" onerror="this.style.display='none'">
         <i class="fas fa-university comm-img-placeholder"></i>
       </div>
+
+      <!-- Image 2: Activity/Hands Helping -->
       <div class="comm-img-card">
+        <img src="https://lh3.googleusercontent.com/d/1k1FIp603gYievUsVP9VcWpVhDd_B_YXQ" alt="Loyola Service" onerror="this.style.display='none'">
         <i class="fas fa-hands-helping comm-img-placeholder"></i>
       </div>
+
+      <!-- Image 3: Academic/Graduation -->
       <div class="comm-img-card">
+        <img src="https://lh3.googleusercontent.com/d/177y9DN6_CY9LZn468nFojAYCV52mkxRk" alt="Loyola Service" onerror="this.style.display='none'">
         <i class="fas fa-graduation-cap comm-img-placeholder"></i>
       </div>
+
+       <!-- Image 3: Academic/Graduation -->
       <div class="comm-img-card">
-        <i class="fas fa-microscope comm-img-placeholder"></i>
+        <img src="https://lh3.googleusercontent.com/d/1amdCSZCoYFOKylHkrZURR_in8yLeJ5WV" alt="Loyola Service" onerror="this.style.display='none'">
+        <i class="fas fa-graduation-cap comm-img-placeholder"></i>
       </div>
     </div>
   </div>
@@ -1205,7 +1210,6 @@ footer { background: var(--blue-dark); border-top: 2px solid rgba(212,166,74,0.2
     <div class="center reveal">
       <div class="section-eyebrow"><i class="fas fa-envelope"></i> Get In Touch</div>
       <h2 class="section-title">Contact <em>Us</em></h2>
-      <p class="section-desc" style="color:#556680;max-width:580px;margin:0 auto;">We'd love to hear from prospective students, alumni, partners and well-wishers of Loyola.</p>
     </div>
     <div class="contact-grid">
       <div class="contact-info reveal-left">
@@ -1220,8 +1224,7 @@ footer { background: var(--blue-dark); border-top: 2px solid rgba(212,166,74,0.2
           <div class="ci-icon"><i class="fas fa-phone"></i></div>
           <div>
             <h4>Phone</h4>
-            <a href="tel:+914428178200">044 – 2817 8200</a>
-            <a href="tel:+914428178352">044 – 2817 8352</a>
+            <a href="tel:+914428178200">+91 - 44 - 28178200</a>
           </div>
         </div>
         <div class="ci-item">
@@ -1233,13 +1236,6 @@ footer { background: var(--blue-dark); border-top: 2px solid rgba(212,166,74,0.2
           </div>
         </div>
         <div class="ci-item">
-          <div class="ci-icon"><i class="fas fa-clock"></i></div>
-          <div>
-            <h4>Office Hours</h4>
-            <p>Monday – Saturday<br>8:30 AM – 4:30 PM</p>
-          </div>
-        </div>
-        <div class="ci-item">
           <div class="ci-icon"><i class="fas fa-globe"></i></div>
           <div>
             <h4>Website</h4>
@@ -1248,8 +1244,10 @@ footer { background: var(--blue-dark); border-top: 2px solid rgba(212,166,74,0.2
         </div>
         <div class="map-embed">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.5964!2d80.2415!3d13.0733!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5267c25ec84e07%3A0xcde6064ab39a5b78!2sLoyola%20College%2C%20Chennai!5e0!3m2!1sen!2sin!4v1700000000000"
-            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.6025642646394!2d80.2312674757342!3d13.061033213000632!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52668542b9ca6b%3A0xfe3d86401c60ec27!2sLoyola%20College!5e0!3m2!1sen!2sin!4v1715331000000!5m2!1sen!2sin"
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"
             title="Loyola College Location">
           </iframe>
         </div>
@@ -1264,7 +1262,7 @@ footer { background: var(--blue-dark); border-top: 2px solid rgba(212,166,74,0.2
     <div class="footer-top">
       <div class="fb">
         <h2>Loyola College (Autonomous)</h2>
-        <p class="sub"><i class="fas fa-cross" style="margin-right:5px;font-size:9px;"></i>Luceat Lux Vestra &middot; Est. 1925 &middot; Chennai</p>
+        <p class="sub"><i class="fas fa-star" style="margin-right:5px;font-size:9px;"></i>Luceat Lux Vestra &middot; Est. 1925 &middot; Chennai</p>
         <p>A premier Jesuit institution affiliated to the University of Madras, committed to a century of academic excellence, social responsibility, and the transformative formation of men and women for others. NAAC A+ Accredited.</p>
       </div>
       <div class="fc">
@@ -1283,34 +1281,13 @@ footer { background: var(--blue-dark); border-top: 2px solid rgba(212,166,74,0.2
         <h4><i class="fas fa-graduation-cap" style="margin-right:5px;"></i>Academics</h4>
         <ul>
           <li><a href="https://www.loyolacollege.edu/admission/streams" target="_blank">Admission Streams</a></li>
-          <li><a href="https://www.loyolacollege.edu/depart/home" target="_blank">Schools of Excellence</a></li>
+          <li><a href="https://www.loyolacollege.edu/library/profile" target="_blank">library</a></li>
           <li><a href="https://www.loyolacollege.edu/research/about-research" target="_blank">Research</a></li>
           <li><a href="https://www.loyolacollege.edu/exam/index" target="_blank">Examinations</a></li>
           <li><a href="https://www.loyolacollege.edu/iqac/" target="_blank">IQAC</a></li>
           <li><a href="https://www.loyolacollege.edu/placement/home" target="_blank">Placements</a></li>
         </ul>
       </div>
-      <div class="fc">
-        <h4><i class="fas fa-envelope" style="margin-right:5px;"></i>Reach Us</h4>
-        <ul>
-          <li><a href="mailto:welcome@loyolacollege.edu">welcome@loyolacollege.edu</a></li>
-          <li><a href="mailto:helpdesk@loyolacollege.edu">helpdesk@loyolacollege.edu</a></li>
-          <li><a href="tel:+914428178200">044 – 2817 8200</a></li>
-          <li><a href="https://www.loyolacollege.edu" target="_blank">loyolacollege.edu</a></li>
-          <li><a href="#">Sterling Road, Nungambakkam</a></li>
-          <li><a href="#">Chennai – 600 034</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>© 2025 Loyola College (Autonomous), Chennai. Society of Jesus. All rights reserved.</p>
-      <div class="accr-badges">
-        <span class="abadge"><i class="fas fa-certificate" style="margin-right:4px;"></i>NAAC A+</span>
-        <span class="abadge">UGC Autonomous</span>
-        <span class="abadge">Est. 1925</span>
-        <span class="abadge">Centenary 2025</span>
-      </div>
-    </div>
   </div>
 </footer>
 
@@ -1445,10 +1422,10 @@ heroObserver.observe(document.querySelector('.hero'));
 const achObserver = new IntersectionObserver((entries) => {
   if (entries[0].isIntersecting) {
     animateCount('a-c1', 10);
-    animateCount('a-c2', 450);
-    animateCount('a-c3', 232);
-    animateCount('a-c4', 60);
-    animateCount('a-c5', 50);
+    animateCount('a-c2', 436);
+    animateCount('a-c3', 291);
+    animateCount('a-c4', 191);
+    animateCount('a-c5', 262);
     achObserver.disconnect();
   }
 }, { threshold: 0.3 });
