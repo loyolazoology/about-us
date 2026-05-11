@@ -1,1 +1,1289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PG & Research – Advanced Zoology & Biotechnology | Loyola College</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Raleway:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+:root {
+  --blue: #23365D;
+  --maroon: #6C232E;
+  --gold: #D4A64A;
+  --light: #F4F6F9;
+  --white: #FFFFFF;
+  --blue-dark: #1a2845;
+  --gold-light: #f0c96a;
+  --gold-dim: #b8893a;
+  --maroon-dark: #4e1820;
+  --green: #1a5c3a;
+  --green-light: #2e8b57;
+  --green-pale: #e8f5ee;
+  --teal: #0d7377;
+  --shadow-soft: 0 8px 40px rgba(35,54,93,0.10);
+  --shadow-lift: 0 20px 60px rgba(35,54,93,0.16);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body { font-family: 'Raleway', sans-serif; background: var(--white); color: var(--blue); overflow-x: hidden; }
 
+/* ── SECTION COMMON ── */
+.section-eyebrow { font-size: 12px; font-weight: 800; letter-spacing: 3.5px; text-transform: uppercase; color: var(--gold-dim); margin-bottom: 14px; display: flex; align-items: center; gap: 12px; }
+.section-title { font-family: 'Playfair Display', serif; font-size: clamp(26px,4vw,48px); font-weight: 700; line-height: 1.12; margin-bottom: 18px; }
+.section-title em { color: var(--gold-dim); font-style: normal; }
+.section-desc { font-family: 'Cormorant Garamond', serif; font-size: clamp(15px,1.7vw,19px); line-height: 1.8; }
+.center { text-align: center; }
+.center .section-eyebrow { justify-content: center; }
+
+/* ── REVEAL ── */
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+.reveal-left { opacity: 0; transform: translateX(-36px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal-left.visible { opacity: 1; transform: none; }
+.reveal-right { opacity: 0; transform: translateX(36px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal-right.visible { opacity: 1; transform: none; }
+
+/* ══ BREADCRUMB ══ */
+.breadcrumb-bar {
+  background: var(--blue-dark);
+  padding: 12px clamp(16px,5vw,56px);
+  display: flex; align-items: center; gap: 8px;
+  font-size: 11px; font-weight: 600; letter-spacing: 1px;
+}
+.breadcrumb-bar a { color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }
+.breadcrumb-bar a:hover { color: var(--gold-light); }
+.breadcrumb-bar span { color: var(--gold); }
+.breadcrumb-bar i { color: rgba(255,255,255,0.3); font-size: 9px; }
+
+/* ══════════════════════════════════
+   HERO BANNER
+══════════════════════════════════ */
+.hero-banner {
+  background: linear-gradient(135deg, #e8f5ee 0%, #f4f6f9 40%, #fffaf3 80%, #f0f8f4 100%);
+  padding: clamp(40px,7vw,90px) clamp(16px,5vw,56px) clamp(36px,6vw,72px);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero-banner::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(circle at 8% 20%, rgba(30,92,58,0.10) 0%, transparent 35%),
+    radial-gradient(circle at 92% 80%, rgba(212,166,74,0.10) 0%, transparent 35%),
+    radial-gradient(circle at 50% 50%, rgba(13,115,119,0.05) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* DNA Helix SVG background */
+.hero-dna { position:absolute;right:-40px;top:0;bottom:0;opacity:0.06;pointer-events:none; }
+.hero-dna-left { position:absolute;left:-40px;top:0;bottom:0;opacity:0.06;pointer-events:none;transform:scaleX(-1); }
+
+.hero-shapes .hs { position: absolute; border-radius: 50%; opacity: 0.07; animation: floatShape 8s ease-in-out infinite; pointer-events: none; }
+.hero-shapes .hs:nth-child(1) { width:280px;height:280px;background:var(--green-light);top:-80px;right:6%;animation-delay:0s; }
+.hero-shapes .hs:nth-child(2) { width:180px;height:180px;background:var(--gold);bottom:-40px;left:4%;animation-delay:2s; }
+.hero-shapes .hs:nth-child(3) { width:120px;height:120px;background:var(--teal);top:30%;left:1%;animation-delay:4s; }
+.hero-shapes .hs:nth-child(4) { width:90px;height:90px;background:var(--maroon);bottom:10%;right:12%;animation-delay:3s; }
+@keyframes floatShape { 0%,100%{transform:translateY(0) rotate(0deg)} 50%{transform:translateY(-24px) rotate(12deg)} }
+
+.hero-inner { position: relative; z-index: 2; max-width: 860px; margin: 0 auto; }
+
+.dept-pill {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: linear-gradient(135deg,var(--green),#1e7a4a);
+  border-radius: 100px; padding: 9px 22px; margin-bottom: 28px;
+  box-shadow: 0 8px 28px rgba(26,92,58,0.25);
+}
+.dept-pill span { color: var(--gold-light); font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
+.dpill-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); animation: pulse 1.8s ease infinite; }
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(1.5)} }
+
+.hero-logo { width: clamp(90px,12vw,140px); height: clamp(90px,12vw,140px); margin: 0 auto 22px; display: flex; align-items: center; justify-content: center; }
+.hero-logo img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 10px 32px rgba(35,54,93,0.2)); }
+
+.dept-badge {
+  display:inline-flex;align-items:center;gap:8px;
+  background: linear-gradient(135deg, rgba(26,92,58,0.1), rgba(13,115,119,0.08));
+  border: 1.5px solid rgba(26,92,58,0.2);
+  border-radius: 10px; padding: 8px 18px; margin-bottom: 16px;
+  font-size: 10.5px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: var(--green);
+}
+
+.hero-h1 { font-family: 'Playfair Display', serif; font-size: clamp(28px,5vw,60px); font-weight: 900; color: var(--blue); line-height: 1.05; letter-spacing: -0.5px; margin-bottom: 10px; }
+.hero-h1 em { color: var(--green); font-style: normal; }
+.hero-h2sub { font-family: 'Playfair Display', serif; font-size: clamp(16px,2.5vw,26px); font-weight: 600; color: var(--gold-dim); margin-bottom: 8px; font-style: italic; }
+.hero-addr { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: clamp(14px,1.9vw,18px); color: #6679a0; margin-bottom: 24px; }
+
+.motto-box { display: inline-block; border: 1.5px solid rgba(26,92,58,0.35); border-radius: 12px; padding: 14px 36px; margin-bottom: 36px; background: rgba(26,92,58,0.05); }
+.motto-latin { font-family: 'Playfair Display', serif; font-size: clamp(15px,2vw,20px); font-style: italic; color: var(--green); letter-spacing: 1.5px; margin-bottom: 5px; }
+.motto-eng { font-size: 9.5px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #8899bb; }
+
+.hero-stats { display: flex; justify-content: center; flex-wrap: wrap; border: 1.5px solid rgba(35,54,93,0.1); border-radius: 14px; overflow: hidden; background: var(--white); box-shadow: var(--shadow-soft); }
+.hero-stat { padding: 22px 28px; text-align: center; flex: 1 1 110px; border-right: 1px solid rgba(35,54,93,0.07); transition: background 0.3s; }
+.hero-stat:last-child { border-right: none; }
+.hero-stat:hover { background: rgba(26,92,58,0.05); }
+.hero-stat .num { font-family: 'Playfair Display', serif; font-size: clamp(24px,3.5vw,38px); font-weight: 900; color: var(--blue); line-height: 1; margin-bottom: 5px; }
+.hero-stat .num em { color: var(--green); font-style: normal; font-size: 60%; }
+.hero-stat .lbl { font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #8899bb; }
+
+/* Floating bio-icons */
+.bio-float { position:absolute; font-size:22px; opacity:0.12; animation:floatIcon 6s ease-in-out infinite; pointer-events:none; }
+.bio-float:nth-child(1){top:10%;left:2%;animation-delay:0s;color:var(--green);}
+.bio-float:nth-child(2){top:60%;left:1%;animation-delay:1s;color:var(--teal);}
+.bio-float:nth-child(3){top:20%;right:2%;animation-delay:2s;color:var(--gold-dim);}
+.bio-float:nth-child(4){top:70%;right:3%;animation-delay:3s;color:var(--green);}
+.bio-float:nth-child(5){top:40%;left:3%;animation-delay:1.5s;color:var(--maroon);}
+@keyframes floatIcon{0%,100%{transform:translateY(0)}50%{transform:translateY(-18px)}}
+
+/* ══════════════════════════════════
+   IDENTITY / ABOUT
+══════════════════════════════════ */
+.identity-section { padding: clamp(52px,7vw,96px) clamp(16px,5vw,56px); background: var(--white); }
+.identity-inner { max-width: 1160px; margin: 0 auto; }
+.identity-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); gap: 24px; margin-top: 48px; }
+.id-card { background: var(--white); border-radius: 18px; padding: 32px 26px; border: 1.5px solid rgba(35,54,93,0.09); transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s; }
+.id-card:hover { transform: translateY(-7px); box-shadow: var(--shadow-lift); border-color: rgba(26,92,58,0.3); }
+.id-icon { width: 54px; height: 54px; border-radius: 13px; background: linear-gradient(135deg,var(--green),var(--green-light)); display: flex; align-items: center; justify-content: center; margin-bottom: 20px; font-size: 20px; color: var(--gold); box-shadow: 0 8px 22px rgba(26,92,58,0.22); }
+.id-card h3 { font-family: 'Playfair Display', serif; font-size: 19px; font-weight: 700; color: var(--blue); margin-bottom: 10px; }
+.id-card p { font-size: 13px; line-height: 1.85; color: #556680; }
+
+/* ══════════════════════════════════
+   HISTORY TIMELINE
+══════════════════════════════════ */
+.history-section {
+  padding: clamp(52px,7vw,96px) clamp(16px,5vw,56px);
+  background: linear-gradient(135deg,#0f3d25 0%,#1a5c3a 60%,#1e6b44 100%);
+  position: relative; overflow: hidden;
+}
+.hist-watermark { position:absolute;right:-60px;top:50%;transform:translateY(-50%);font-family:'Playfair Display',serif;font-size:clamp(160px,22vw,300px);font-weight:900;color:rgba(212,166,74,0.05);line-height:1;pointer-events:none;user-select:none; }
+.history-inner { max-width: 1160px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: clamp(36px,5vw,80px); align-items: center; }
+.hist-left .section-title { color: var(--white); }
+.hist-left .section-desc { color: rgba(255,255,255,0.72); }
+.hist-image-wrap { margin: 26px 0; background:#fff; padding:12px; border-radius:18px; border:1px solid rgba(212,166,74,0.3); box-shadow:0 12px 30px rgba(0,0,0,0.15); position:relative; overflow:hidden; display:inline-block; max-width:100%; }
+.hist-image-wrap::before { content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:var(--gold); }
+.hist-image-wrap img { display:block;width:100%;height:auto;border-radius:10px;transition:transform 0.5s ease; }
+.hist-image-wrap:hover img { transform:scale(1.03); }
+.timeline { position:relative;padding-left:50px; }
+.timeline::before { content:'';position:absolute;left:18px;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--gold),rgba(212,166,74,0.1)); }
+.tl-item { position:relative;margin-bottom:28px; }
+.tl-item:last-child { margin-bottom:0; }
+.tl-dot { position:absolute;left:-50px;top:3px;width:38px;height:38px;border-radius:50%;background:var(--green);border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:9px;font-weight:700;color:var(--gold);z-index:1; }
+.tl-year { font-size:10px;font-weight:800;color:var(--gold);letter-spacing:2px;margin-bottom:4px; }
+.tl-text { font-size:13px;color:rgba(255,255,255,0.68);line-height:1.65; }
+
+/* ══════════════════════════════════
+   PROGRAMMES
+══════════════════════════════════ */
+.programmes-section { padding: clamp(52px,7vw,96px) clamp(16px,5vw,56px); background: var(--light); }
+.programmes-inner { max-width: 1160px; margin: 0 auto; }
+.prog-tabs { display:flex;flex-wrap:wrap;gap:7px;margin:36px 0 28px; }
+.p-tab { padding:8px 18px;border-radius:100px;font-size:11.5px;font-weight:700;letter-spacing:0.5px;cursor:pointer;border:1.5px solid rgba(26,92,58,0.2);color:var(--green);background:transparent;transition:all 0.25s; }
+.p-tab:hover,.p-tab.active { background:var(--green);color:var(--white);border-color:var(--green); }
+.prog-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:22px; }
+.prog-card { background:var(--white);border-radius:18px;padding:28px 22px;border:1.5px solid rgba(26,92,58,0.09);transition:all 0.3s;overflow:hidden;position:relative; }
+.prog-card::before { content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--green),var(--gold),var(--teal)); }
+.prog-card:hover { background:var(--white);border-color:rgba(26,92,58,0.3);transform:translateY(-6px);box-shadow:var(--shadow-lift); }
+.prog-icon { font-size:28px;color:var(--green);margin-bottom:14px; }
+.prog-card h4 { font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--blue);margin-bottom:8px; }
+.prog-card p { font-size:12.5px;color:#778899;line-height:1.75; }
+.prog-badge { display:inline-flex;align-items:center;gap:5px;margin-top:12px;padding:4px 11px;border-radius:100px;font-size:9.5px;font-weight:700;letter-spacing:0.5px;background:rgba(26,92,58,0.08);color:var(--green); }
+.prog-duration { float:right;font-size:9px;font-weight:800;color:var(--gold-dim);letter-spacing:1px;background:rgba(212,166,74,0.1);padding:3px 9px;border-radius:100px;margin-top:12px; }
+
+/* ══════════════════════════════════
+   STAFF / FACULTY
+══════════════════════════════════ */
+.staff-section { padding: clamp(52px,7vw,96px) clamp(16px,5vw,56px); background: var(--white); }
+.staff-inner { max-width: 1240px; margin: 0 auto; }
+.staff-grid { display:flex;flex-wrap:wrap;justify-content:center;gap:26px;margin-top:52px; }
+.staff-card { flex:0 1 300px;max-width:320px;background:var(--white);border-radius:22px;overflow:hidden;border:1.5px solid rgba(35,54,93,0.08);box-shadow:var(--shadow-soft);transition:all 0.35s; }
+.staff-card:hover { transform:translateY(-8px);box-shadow:var(--shadow-lift);border-color:rgba(26,92,58,0.25); }
+.sc-top { background:linear-gradient(135deg,var(--green),#1e7a4a);padding:32px 22px 28px;text-align:center;position:relative; }
+.sc-top::after { content:'';position:absolute;bottom:-1px;left:0;right:0;height:22px;background:var(--white);clip-path:ellipse(55% 100% at 50% 100%); }
+.sc-avatar { width:90px;height:90px;border-radius:50%;margin:0 auto 14px;border:3px solid var(--gold);overflow:hidden;background:rgba(212,166,74,0.15);display:flex;align-items:center;justify-content:center;position:relative; }
+.sc-avatar img { width:100%;height:100%;object-fit:cover;object-position:top; }
+.sc-initials { font-family:'Playfair Display',serif;font-size:30px;font-weight:900;color:var(--gold); }
+.sc-name { font-family:'Playfair Display',serif;font-size:16.5px;font-weight:700;color:var(--white);margin-bottom:4px;line-height:1.2; }
+.sc-desig { font-size:10px;color:var(--gold-light);font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:3px; }
+.sc-qual { font-size:10.5px;color:rgba(255,255,255,0.6);font-style:italic; }
+.sc-body { padding:26px 20px 22px; }
+.sc-body p { font-size:12.5px;line-height:1.78;color:#556680;margin-bottom:10px; }
+.sc-specialization { font-size:11.5px;font-weight:700;color:var(--green);margin-bottom:10px; }
+.sc-specialization i { margin-right:5px;font-size:10px; }
+.sc-badges { display:flex;flex-wrap:wrap;gap:5px;margin-bottom:14px; }
+.sc-badge { padding:3px 9px;border-radius:100px;font-size:9px;font-weight:700;letter-spacing:0.5px;background:rgba(26,92,58,0.08);color:var(--green); }
+.sc-links { display:flex;gap:8px;flex-wrap:wrap; }
+.sc-link { display:inline-flex;align-items:center;gap:5px;padding:7px 13px;border-radius:8px;font-size:10.5px;font-weight:700;letter-spacing:0.5px;text-decoration:none;transition:all 0.25s; }
+.sc-link.resume { background:var(--green);color:var(--white); }
+.sc-link.resume:hover { background:#0f3d25;transform:translateY(-1px); }
+.sc-link.email { background:rgba(35,54,93,0.07);color:var(--blue); }
+.sc-link.email:hover { background:var(--blue);color:var(--white); }
+.sc-link.scholar { background:rgba(212,166,74,0.12);color:var(--gold-dim); }
+.sc-link.scholar:hover { background:var(--gold-dim);color:var(--white); }
+
+/* HOD highlight */
+.staff-card.hod { flex:0 1 340px;max-width:360px; }
+.staff-card.hod .sc-top { background:linear-gradient(135deg,var(--blue-dark),var(--blue)); }
+.hod-crown { position:absolute;top:12px;right:14px;background:var(--gold);color:var(--blue-dark);font-size:9px;font-weight:800;letter-spacing:1.5px;padding:3px 9px;border-radius:100px; }
+
+/* ══════════════════════════════════
+   RESEARCH
+══════════════════════════════════ */
+.research-section { padding: clamp(52px,7vw,96px) clamp(16px,5vw,56px); background: var(--maroon); position: relative; overflow: hidden; }
+.research-section::before { content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--maroon-dark),var(--maroon),#8a2d3a); }
+.research-inner { max-width: 1160px; margin: 0 auto; position: relative; }
+.research-section .section-title { color: var(--white); }
+.research-section .section-desc { color: rgba(255,255,255,0.65); }
+.res-grid { display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:18px;margin-top:48px; }
+.res-card { text-align:center;padding:clamp(24px,3.5vw,38px) 18px;background:rgba(255,255,255,0.06);border:1px solid rgba(212,166,74,0.2);border-radius:18px;transition:all 0.3s; }
+.res-card:hover { background:rgba(212,166,74,0.12);transform:scale(1.04);border-color:rgba(212,166,74,0.5); }
+.res-num { font-family:'Playfair Display',serif;font-size:clamp(34px,4.5vw,50px);font-weight:900;color:var(--gold);line-height:1; }
+.res-num sup { font-size:50%;vertical-align:super; }
+.res-lbl { font-size:10.5px;font-weight:700;letter-spacing:1px;color:rgba(255,255,255,0.55);margin-top:8px; }
+.res-icon { font-size:18px;color:rgba(212,166,74,0.5);margin-bottom:8px; }
+
+.research-areas { display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:40px; }
+.ra-card { background:rgba(255,255,255,0.06);border:1px solid rgba(212,166,74,0.2);border-radius:16px;padding:24px 20px;transition:all 0.3s; }
+.ra-card:hover { border-color:rgba(212,166,74,0.5);background:rgba(212,166,74,0.08);transform:translateY(-3px); }
+.ra-icon { font-size:24px;color:var(--gold);margin-bottom:10px; }
+.ra-title { font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--white);margin-bottom:8px; }
+.ra-desc { font-size:12px;color:rgba(255,255,255,0.55);line-height:1.7; }
+
+/* ══════════════════════════════════
+   ACHIEVEMENTS
+══════════════════════════════════ */
+.ach-section { padding: clamp(52px,7vw,96px) clamp(16px,5vw,56px); background: var(--light); }
+.ach-inner { max-width: 1160px; margin: 0 auto; }
+.ach-row { display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:18px;margin-top:48px; }
+.rank-card { background:var(--white);border:1.5px solid rgba(26,92,58,0.12);border-radius:16px;padding:28px 20px;text-align:center;transition:all 0.3s;box-shadow:var(--shadow-soft); }
+.rank-card:hover { border-color:rgba(26,92,58,0.3);box-shadow:var(--shadow-lift);transform:translateY(-4px); }
+.rank-title { font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--green);margin-bottom:8px; }
+.rank-title i { margin-right:4px; }
+.rank-val { font-family:'Playfair Display';font-size:clamp(26px,3.5vw,38px);font-weight:900;color:var(--blue); }
+.rank-val em { color:var(--green);font-style:normal;font-size:70%; }
+.rank-sub { font-size:10.5px;color:#8899bb;margin-top:6px; }
+
+.accolades-list { margin-top:40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px; }
+.acc-item { background:var(--white);border-radius:13px;padding:18px 20px;border-left:4px solid var(--green);box-shadow:var(--shadow-soft);display:flex;align-items:flex-start;gap:14px;transition:all 0.3s; }
+.acc-item:hover { transform:translateX(5px);box-shadow:var(--shadow-lift); }
+.acc-icon { width:38px;height:38px;border-radius:9px;background:linear-gradient(135deg,var(--green),var(--green-light));display:flex;align-items:center;justify-content:center;font-size:14px;color:var(--gold);flex-shrink:0; }
+.acc-text h4 { font-size:13px;font-weight:700;color:var(--blue);margin-bottom:4px; }
+.acc-text p { font-size:11.5px;color:#778899;line-height:1.6; }
+
+/* ══════════════════════════════════
+   WILDLIFE / BIO SHOWCASE
+══════════════════════════════════ */
+.wildlife-section { padding: clamp(52px,7vw,96px) clamp(16px,5vw,56px); background: var(--blue); }
+.wildlife-inner { max-width: 1160px; margin: 0 auto; display:grid; grid-template-columns:1fr 1fr; gap:clamp(36px,5vw,72px); align-items:center; }
+.wl-left .section-title { color: var(--white); }
+.wl-left .section-desc { color: rgba(255,255,255,0.68); }
+.wl-stats { display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:32px; }
+.wl-stat { background:rgba(255,255,255,0.07);border:1px solid rgba(212,166,74,0.2);border-radius:13px;padding:20px 16px;text-align:center; }
+.wl-stat .ws-num { font-family:'Playfair Display',serif;font-size:28px;font-weight:900;color:var(--gold);line-height:1; }
+.wl-stat .ws-lbl { font-size:10px;font-weight:700;letter-spacing:0.5px;color:rgba(255,255,255,0.5);margin-top:5px; }
+.bio-icon-grid { display:grid;grid-template-columns:1fr 1fr;gap:14px; }
+.bio-icon-card { border-radius:16px;overflow:hidden;aspect-ratio:1;background:rgba(255,255,255,0.06);border:1px solid rgba(212,166,74,0.15);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;font-size:48px;color:rgba(212,166,74,0.5);transition:all 0.3s;padding:20px;text-align:center; }
+.bio-icon-card:hover { border-color:rgba(212,166,74,0.4);background:rgba(212,166,74,0.06);transform:scale(1.03); }
+.bio-icon-card span { font-size:11px;font-weight:700;letter-spacing:1px;color:rgba(255,255,255,0.5);text-transform:uppercase; }
+
+/* ══════════════════════════════════
+   LAB & FACILITIES
+══════════════════════════════════ */
+.facilities-section { padding: clamp(52px,7vw,96px) clamp(16px,5vw,56px); background: var(--white); }
+.facilities-inner { max-width: 1160px; margin: 0 auto; }
+.fac-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:22px;margin-top:48px; }
+.fac-card { border-radius:18px;padding:clamp(24px,2.5vw,36px);border:1.5px solid rgba(35,54,93,0.08);position:relative;overflow:hidden;transition:all 0.3s;background:var(--white); }
+.fac-card::before { content:'';position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,var(--green),var(--teal),var(--gold)); }
+.fac-card:hover { transform:translateY(-7px);box-shadow:var(--shadow-lift);border-color:rgba(26,92,58,0.2); }
+.fac-icon { width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--green),var(--green-light));display:flex;align-items:center;justify-content:center;margin-bottom:18px;font-size:22px;color:var(--gold);box-shadow:0 8px 22px rgba(26,92,58,0.2); }
+.fac-card h3 { font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--blue);margin-bottom:10px; }
+.fac-card p { font-size:13px;line-height:1.8;color:#556680; }
+
+/* ══════════════════════════════════
+   EVENTS
+══════════════════════════════════ */
+.events-section { padding: clamp(52px,7vw,96px) clamp(16px,5vw,56px); background: var(--light); }
+.events-inner { max-width: 1160px; margin: 0 auto; }
+.events-grid { display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;margin-top:48px; }
+.event-card { background:var(--white);border-radius:18px;padding:clamp(20px,2.5vw,32px);border:1.5px solid rgba(35,54,93,0.08);display:flex;gap:20px;box-shadow:var(--shadow-soft);transition:all 0.3s; }
+.event-card:hover { transform:translateY(-5px);box-shadow:var(--shadow-lift);border-color:rgba(26,92,58,0.2); }
+.event-date { flex-shrink:0;width:60px;height:66px;background:linear-gradient(135deg,var(--green),var(--green-light));border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center; }
+.event-day { font-family:'Playfair Display',serif;font-size:20px;font-weight:900;color:var(--gold);line-height:1; }
+.event-month { font-size:8.5px;font-weight:700;letter-spacing:1.5px;color:rgba(255,255,255,0.6);text-transform:uppercase;margin-top:2px; }
+.event-tag { display:inline-block;padding:2px 9px;border-radius:100px;font-size:8.5px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;background:rgba(26,92,58,0.1);color:var(--green);margin-bottom:7px; }
+.event-title { font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:var(--blue);margin-bottom:6px; }
+.event-desc { font-size:12px;color:#778899;line-height:1.75; }
+
+/* ══════════════════════════════════
+   CONTACT
+══════════════════════════════════ */
+.contact-section { padding: clamp(52px,7vw,96px) clamp(16px,5vw,56px); background: var(--white); }
+.contact-inner { max-width: 860px; margin: 0 auto; }
+.ci-card { background:var(--light);border-radius:20px;border:1.5px solid rgba(26,92,58,0.12);box-shadow:var(--shadow-soft);padding:clamp(24px,4vw,40px);margin-bottom:24px; }
+.ci-grid { display:grid;grid-template-columns:1fr 1fr;gap:26px 40px; }
+.ci-item { display:flex;flex-direction:row;align-items:flex-start;gap:14px;min-width:0; }
+.ci-icon { width:44px;height:44px;border-radius:11px;flex-shrink:0;background:var(--green);display:flex;align-items:center;justify-content:center;font-size:16px;color:var(--gold);box-shadow:0 5px 18px rgba(26,92,58,0.2); }
+.ci-text { min-width:0; }
+.ci-item h4 { font-size:9.5px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--green);margin-bottom:5px; }
+.ci-item p,.ci-item a { font-size:13px;color:#445566;text-decoration:none;line-height:1.7;display:block;word-break:break-word;transition:color 0.2s; }
+.ci-item a:hover { color:var(--green); }
+.map-embed { border-radius:14px;overflow:hidden;border:1.5px solid rgba(26,92,58,0.15);box-shadow:var(--shadow-soft); }
+.map-embed iframe { width:100%;height:280px;border:none;display:block; }
+
+/* ══════════════════════════════════
+   FOOTER
+══════════════════════════════════ */
+footer { background: var(--blue-dark); border-top: 2px solid rgba(212,166,74,0.2); padding: clamp(36px,5vw,60px) clamp(16px,5vw,56px) clamp(20px,2.5vw,32px); }
+.footer-inner { max-width: 1160px; margin: 0 auto; }
+.footer-top { display:grid;grid-template-columns:2fr 1fr 1fr;gap:clamp(28px,4vw,56px);margin-bottom:40px; }
+.fb h2 { font-family:'Playfair Display',serif;font-size:18px;color:var(--white);margin-bottom:4px; }
+.fb .sub { font-size:10px;color:var(--gold-dim);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px;font-weight:700; }
+.fb p { font-size:12px;color:rgba(255,255,255,0.38);line-height:1.85; }
+.fc h4 { font-size:9.5px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--gold-dim);margin-bottom:16px; }
+.fc ul { list-style:none; }
+.fc ul li { margin-bottom:9px; }
+.fc ul li a { font-size:12px;color:rgba(255,255,255,0.38);text-decoration:none;transition:color 0.25s; }
+.fc ul li a:hover { color:var(--gold-light); }
+.footer-bottom { border-top:1px solid rgba(255,255,255,0.07);padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px; }
+.footer-bottom p { font-size:11px;color:rgba(255,255,255,0.25); }
+.accr-badges { display:flex;gap:8px;flex-wrap:wrap; }
+.abadge { background:rgba(212,166,74,0.1);border:1px solid rgba(212,166,74,0.25);border-radius:6px;padding:4px 11px;font-size:10px;font-weight:800;color:var(--gold);letter-spacing:1px; }
+
+/* ── BACK TO TOP ── */
+.btt { position:fixed;bottom:24px;right:24px;z-index:900;width:42px;height:42px;border-radius:11px;background:var(--green);color:var(--gold);font-size:17px;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:all 0.3s;box-shadow:0 5px 18px rgba(26,92,58,0.3); }
+.btt.visible { opacity:1;visibility:visible; }
+.btt:hover { background:var(--gold-dim);color:var(--white);transform:translateY(-3px); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  .history-inner,.wildlife-inner { grid-template-columns:1fr;gap:44px; }
+  .footer-top { grid-template-columns:1fr 1fr; }
+}
+@media (max-width: 768px) {
+  .footer-top { grid-template-columns:1fr;gap:28px; }
+}
+@media (max-width: 600px) {
+  .ci-grid { grid-template-columns:1fr;gap:18px; }
+}
+@media (max-width: 480px) {
+  .hero-stats { flex-direction:column; }
+  .hero-stat { border-right:none;border-bottom:1px solid rgba(35,54,93,0.07); }
+  .hero-stat:last-child { border-bottom:none; }
+  .wl-stats { grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════
+     HERO BANNER
+══════════════════════════════════ -->
+<section class="hero-banner">
+  <div class="hero-shapes">
+    <div class="hs"></div><div class="hs"></div><div class="hs"></div><div class="hs"></div>
+  </div>
+  <!-- Floating bio icons -->
+  <div class="bio-float"><i class="fas fa-dna"></i></div>
+  <div class="bio-float"><i class="fas fa-frog"></i></div>
+  <div class="bio-float"><i class="fas fa-microscope"></i></div>
+  <div class="bio-float"><i class="fas fa-seedling"></i></div>
+  <div class="bio-float"><i class="fas fa-bug"></i></div>
+
+  <div class="hero-inner">
+    <div class="dept-pill">
+      <span class="dpill-dot"></span>
+      <span>Loyola College (Autonomous) · Est. 1925 · Chennai</span>
+      <span class="dpill-dot"></span>
+    </div>
+
+    <div class="hero-logo">
+      <img src="https://loyolazoology.github.io/about-us/azbt-logo.png" alt="Loyola College Logo">
+    </div>
+
+    <div class="dept-badge">
+      PG &amp; Research Department
+    </div>
+
+    <h1 class="hero-h1"><em>Advanced Zoology</em><br>&amp; Biotechnology</h1>
+    <p class="hero-h2sub">School of Life Sciences · Loyola College, Chennai</p>
+    <p class="hero-addr"><i class="fas fa-map-marker-alt" style="color:var(--green);margin-right:6px;"></i>Sterling Road, Nungambakkam · Chennai – 600 034 · Tamil Nadu, India</p>
+
+    <div class="motto-box">
+      <div class="motto-latin">Scientia et Vita — Knowledge &amp; Life</div>
+      <div class="motto-eng"><i class="fas fa-leaf" style="margin-right:6px;font-size:8px;color:var(--green);"></i>Exploring Life, One Cell at a Time</div>
+    </div>
+
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="num"><span id="h-c1">0</span><em>+</em></div>
+        <div class="lbl"><i class="fas fa-calendar-check" style="margin-right:4px;"></i>Years of Excellence</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num"><span id="h-c2">0</span><em>+</em></div>
+        <div class="lbl"><i class="fas fa-user-graduate" style="margin-right:4px;"></i>Students Enrolled</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num"><span id="h-c3">0</span><em>+</em></div>
+        <div class="lbl"><i class="fas fa-flask" style="margin-right:4px;"></i>Research Scholars</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num"><span id="h-c4">0</span><em>+</em></div>
+        <div class="lbl"><i class="fas fa-chalkboard-teacher" style="margin-right:4px;"></i>Faculty Members</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num"><span id="h-c5">0</span><em>+</em></div>
+        <div class="lbl"><i class="fas fa-book-open" style="margin-right:4px;"></i>Publications</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     ABOUT / IDENTITY
+══════════════════════════════════ -->
+<section class="identity-section" id="about">
+  <div class="identity-inner">
+    <div class="center reveal">
+      <div class="section-eyebrow"><i class="fas fa-info-circle"></i> Our Identity</div>
+      <h2 class="section-title">Who <em>We Are</em></h2>
+      <p class="section-desc" style="color:#556680;max-width:680px;margin:0 auto;">The PG &amp; Research Department of Advanced Zoology and Biotechnology at Loyola College is one of Chennai's most distinguished life sciences departments — blending classical zoology with cutting-edge biotechnology to train world-class scientists, researchers and educators since 1948.</p>
+    </div>
+    <div class="identity-grid">
+      <div class="id-card reveal">
+        <div class="id-icon"><i class="fas fa-bullseye"></i></div>
+        <h3>Our Mission</h3>
+        <p>To provide rigorous, research-driven education in zoology and biotechnology — forming critical thinkers, ethical scientists and compassionate citizens who serve society and the natural world with knowledge, integrity and innovation.</p>
+      </div>
+      <div class="id-card reveal">
+        <div class="id-icon"><i class="fas fa-eye"></i></div>
+        <h3>Our Vision</h3>
+        <p>To be a nationally recognised Centre of Excellence in Life Sciences — integrating biodiversity conservation, translational biotechnology, and Jesuit values of holistic formation to produce globally competent scientists.</p>
+      </div>
+      <div class="id-card reveal">
+        <div class="id-icon"><i class="fas fa-dna"></i></div>
+        <h3>Interdisciplinary Approach</h3>
+        <p>Our curriculum bridges classical animal biology, molecular genetics, microbiology, bioinformatics and industrial biotechnology — preparing students for careers in research, pharma, environmental science, and academia.</p>
+      </div>
+      <div class="id-card reveal">
+        <div class="id-icon"><i class="fas fa-leaf"></i></div>
+        <h3>Biodiversity &amp; Conservation</h3>
+        <p>Committed to documenting and conserving India's rich biodiversity. Faculty and students conduct field studies in Tamil Nadu's wetlands, forests and urban ecosystems — contributing to national conservation databases.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     HISTORY TIMELINE
+══════════════════════════════════ -->
+<section class="history-section" id="history">
+  <div class="hist-watermark">ZOO</div>
+  <div class="history-inner">
+    <div class="hist-left reveal-left">
+      <div class="section-eyebrow" style="color:var(--gold);"><i class="fas fa-history"></i> A Legacy of Discovery</div>
+      <h2 class="section-title">Over <em>75 Years</em> of Life Science Excellence</h2>
+      <p class="section-desc">From a modest natural sciences unit founded in 1948 to a vibrant PG &amp; Research Department offering UG, PG and Ph.D. programmes — the Department of Advanced Zoology and Biotechnology has grown into one of South India's most respected life science departments.</p>
+      <p class="section-desc" style="margin-top:14px;font-size:clamp(13px,1.5vw,16px);">Our alumni serve as scientists at CSIR, ICMR and DBT institutions, as faculty across Indian universities, and as researchers in biotech industries across the globe.</p>
+      <div class="hist-image-wrap" style="margin-top:22px;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/DNA_replication_en.svg/800px-DNA_replication_en.svg.png" alt="DNA Research" style="background:#fff;">
+      </div>
+    </div>
+    <div class="timeline reveal-right">
+      <div class="tl-item">
+        <div class="tl-dot">1948</div>
+        <div class="tl-year"><i class="fas fa-flag"></i> FOUNDED</div>
+        <div class="tl-text">The Department of Natural Sciences was started in 1948, laying the foundation for life science education at Loyola College.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">1957</div>
+        <div class="tl-year"><i class="fas fa-graduation-cap"></i> ZOOLOGY DEPARTMENT</div>
+        <div class="tl-text">A full-fledged Department of Zoology was established in 1957, offering B.Sc. Zoology — one of the first in the Madras University system.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">1982</div>
+        <div class="tl-year"><i class="fas fa-flask"></i> PG PROGRAMME</div>
+        <div class="tl-text">Launch of M.Sc. Zoology, elevating the department to postgraduate status and enabling higher research engagement with the University of Madras.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">1998</div>
+        <div class="tl-year"><i class="fas fa-dna"></i> BIOTECHNOLOGY INTEGRATION</div>
+        <div class="tl-text">Biotechnology formally integrated into the curriculum — renamed the Department of Advanced Zoology and Biotechnology to reflect its interdisciplinary scope.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">2005</div>
+        <div class="tl-year"><i class="fas fa-microscope"></i> RESEARCH CENTRE STATUS</div>
+        <div class="tl-text">Recognised as a Research Centre by the University of Madras, empowering the department to award Ph.D. degrees in Zoology and Biotechnology.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">2024</div>
+        <div class="tl-year"><i class="fas fa-star"></i> CENTENARY YEAR</div>
+        <div class="tl-text">Celebrating alongside Loyola College's centenary — with upgraded laboratory infrastructure, new research collaborations, and the Loyola Research Endowment Fund.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     PROGRAMMES
+══════════════════════════════════ -->
+<section class="programmes-section" id="programmes">
+  <div class="programmes-inner">
+    <div class="center reveal">
+      <div class="section-eyebrow"><i class="fas fa-graduation-cap"></i> Academic Offerings</div>
+      <h2 class="section-title">Our <em>Programmes</em></h2>
+      <p class="section-desc" style="color:#556680;max-width:660px;margin:0 auto;">Undergraduate, postgraduate and doctoral programmes designed to build scientific rigour, laboratory expertise and a lifelong passion for the living world.</p>
+    </div>
+    <div class="prog-tabs reveal">
+      <button class="p-tab active" onclick="filterProg('all',this)">All Programmes</button>
+      <button class="p-tab" onclick="filterProg('ug',this)">Undergraduate</button>
+      <button class="p-tab" onclick="filterProg('pg',this)">Postgraduate</button>
+      <button class="p-tab" onclick="filterProg('phd',this)">Ph.D. Research</button>
+      <button class="p-tab" onclick="filterProg('cert',this)">Certificate Courses</button>
+    </div>
+    <div class="prog-grid" id="progGrid">
+      <!-- UG -->
+      <div class="prog-card" data-cat="ug">
+        <div class="prog-icon"><i class="fas fa-frog"></i></div>
+        <h4>B.Sc. Advanced Zoology &amp; Biotechnology</h4>
+        <p>A comprehensive 3-year undergraduate programme covering animal biology, physiology, ecology, genetics, cell biology, and foundational biotechnology with extensive laboratory training.</p>
+        <span class="prog-badge"><i class="fas fa-layer-group"></i> Undergraduate</span>
+        <span class="prog-duration">3 Years</span>
+      </div>
+      <!-- PG -->
+      <div class="prog-card" data-cat="pg">
+        <div class="prog-icon"><i class="fas fa-dna"></i></div>
+        <h4>M.Sc. Advanced Zoology &amp; Biotechnology</h4>
+        <p>A rigorous 2-year postgraduate programme with specialised tracks in molecular biology, environmental biology, immunology, bioinformatics and recombinant DNA technology.</p>
+        <span class="prog-badge"><i class="fas fa-layer-group"></i> Postgraduate</span>
+        <span class="prog-duration">2 Years</span>
+      </div>
+      <div class="prog-card" data-cat="pg">
+        <div class="prog-icon"><i class="fas fa-microscope"></i></div>
+        <h4>M.Sc. Biotechnology</h4>
+        <p>Industry-focused postgraduate programme emphasising industrial microbiology, bioprocess engineering, genetic engineering, drug discovery and regulatory affairs in biotechnology.</p>
+        <span class="prog-badge"><i class="fas fa-layer-group"></i> Postgraduate</span>
+        <span class="prog-duration">2 Years</span>
+      </div>
+      <!-- Ph.D. -->
+      <div class="prog-card" data-cat="phd">
+        <div class="prog-icon"><i class="fas fa-flask"></i></div>
+        <h4>Ph.D. in Zoology</h4>
+        <p>Doctoral research under University of Madras recognition in areas including taxonomy, wildlife biology, aquatic ecology, insect biology, endocrinology and environmental toxicology.</p>
+        <span class="prog-badge"><i class="fas fa-layer-group"></i> Doctoral</span>
+        <span class="prog-duration">3–5 Years</span>
+      </div>
+      <div class="prog-card" data-cat="phd">
+        <div class="prog-icon"><i class="fas fa-atom"></i></div>
+        <h4>Ph.D. in Biotechnology</h4>
+        <p>Research-focused doctoral programme in molecular biotechnology, nanobiotechnology, pharmaceutical biotechnology, cancer biology, and microbial genetics with full research centre facilities.</p>
+        <span class="prog-badge"><i class="fas fa-layer-group"></i> Doctoral</span>
+        <span class="prog-duration">3–5 Years</span>
+      </div>
+      <!-- Certificate -->
+      <div class="prog-card" data-cat="cert">
+        <div class="prog-icon"><i class="fas fa-certificate"></i></div>
+        <h4>Certificate in Environmental Biology</h4>
+        <p>Short-term add-on programme in biodiversity assessment, ecological monitoring, environmental impact analysis and conservation management for UG students.</p>
+        <span class="prog-badge"><i class="fas fa-layer-group"></i> Certificate</span>
+        <span class="prog-duration">6 Months</span>
+      </div>
+      <div class="prog-card" data-cat="cert">
+        <div class="prog-icon"><i class="fas fa-vial"></i></div>
+        <h4>Certificate in Clinical &amp; Medical Lab Techniques</h4>
+        <p>Hands-on certificate course equipping students with practical skills in haematology, biochemical analysis, microbiology and diagnostic methods used in clinical laboratories.</p>
+        <span class="prog-badge"><i class="fas fa-layer-group"></i> Certificate</span>
+        <span class="prog-duration">6 Months</span>
+      </div>
+      <div class="prog-card" data-cat="cert">
+        <div class="prog-icon"><i class="fas fa-laptop-code"></i></div>
+        <h4>Certificate in Bioinformatics &amp; Computational Biology</h4>
+        <p>Introduction to sequence analysis, structural bioinformatics, NCBI databases, molecular docking and computational tools for biological data analysis.</p>
+        <span class="prog-badge"><i class="fas fa-layer-group"></i> Certificate</span>
+        <span class="prog-duration">3 Months</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     STAFF / FACULTY
+══════════════════════════════════ -->
+<section class="staff-section" id="faculty">
+  <div class="staff-inner">
+    <div class="center reveal">
+      <div class="section-eyebrow"><i class="fas fa-users"></i> Meet Our Team</div>
+      <h2 class="section-title">Faculty &amp; <em>Staff</em></h2>
+      <p class="section-desc" style="color:#556680;max-width:640px;margin:0 auto;">Distinguished scientists, researchers and educators committed to nurturing the next generation of life science innovators through excellence in teaching and research.</p>
+    </div>
+    <div class="staff-grid">
+
+      <!-- HOD -->
+      <div class="staff-card hod reveal">
+        <div class="sc-top">
+          <div class="hod-crown"><i class="fas fa-crown" style="margin-right:4px;font-size:8px;"></i>Head of Department</div>
+          <div class="sc-avatar">
+            <img src="https://ui-avatars.com/api/?name=Dr+S+Ignacimuthu&background=1a5c3a&color=D4A64A&size=180&bold=true&font-size=0.35" alt="Dr. S. Ignacimuthu" onerror="this.style.display='none';this.parentNode.innerHTML='<span class=\'sc-initials\'>SI</span>'">
+          </div>
+          <div class="sc-name">Dr. S. Ignacimuthu, SJ</div>
+          <div class="sc-desig">Head of Department &amp; Professor</div>
+          <div class="sc-qual">Ph.D. (Entomology) | M.Sc. Zoology</div>
+        </div>
+        <div class="sc-body">
+          <div class="sc-specialization"><i class="fas fa-bug"></i> Entomology · Biopesticides · Natural Products</div>
+          <p>A distinguished Jesuit scientist and former Director of Entomology Research Institute, Dr. Ignacimuthu has over 400 publications, 50+ funded projects, and 35 Ph.D. scholars to his credit. Fellow of the National Academy of Sciences, India.</p>
+          <div class="sc-badges">
+            <span class="sc-badge">FNASc</span>
+            <span class="sc-badge">400+ Publications</span>
+            <span class="sc-badge">35 Ph.D. Scholars</span>
+            <span class="sc-badge">CSIR Funded</span>
+          </div>
+          <div class="sc-links">
+            <a href="#" class="sc-link resume"><i class="fas fa-file-alt" style="margin-right:5px;"></i>Full CV</a>
+            <a href="mailto:ignacimuthu@loyolacollege.edu" class="sc-link email"><i class="fas fa-envelope" style="margin-right:5px;"></i>Email</a>
+            <a href="#" class="sc-link scholar"><i class="fas fa-graduation-cap" style="margin-right:5px;"></i>Scholar</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Faculty 1 -->
+      <div class="staff-card reveal">
+        <div class="sc-top">
+          <div class="sc-avatar">
+            <img src="https://ui-avatars.com/api/?name=Dr+M+Arumugam&background=1a5c3a&color=D4A64A&size=180&bold=true&font-size=0.35" alt="Dr. M. Arumugam" onerror="this.style.display='none';this.parentNode.innerHTML='<span class=\'sc-initials\'>MA</span>'">
+          </div>
+          <div class="sc-name">Dr. M. Arumugam</div>
+          <div class="sc-desig">Associate Professor</div>
+          <div class="sc-qual">Ph.D. | M.Sc. Zoology</div>
+        </div>
+        <div class="sc-body">
+          <div class="sc-specialization"><i class="fas fa-fish"></i> Aquatic Biology · Fisheries Science · Ecotoxicology</div>
+          <p>Specialises in freshwater ecology and fish biology. Recipient of DST-SERB grant for wetland biodiversity research in Tamil Nadu. Guided 8 Ph.D. scholars and published 95+ papers in peer-reviewed journals.</p>
+          <div class="sc-badges">
+            <span class="sc-badge">DST-SERB Funded</span>
+            <span class="sc-badge">8 Ph.D. Scholars</span>
+            <span class="sc-badge">95+ Papers</span>
+          </div>
+          <div class="sc-links">
+            <a href="#" class="sc-link resume"><i class="fas fa-file-alt" style="margin-right:5px;"></i>Full CV</a>
+            <a href="mailto:arumugam@loyolacollege.edu" class="sc-link email"><i class="fas fa-envelope" style="margin-right:5px;"></i>Email</a>
+            <a href="#" class="sc-link scholar"><i class="fas fa-graduation-cap" style="margin-right:5px;"></i>Scholar</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Faculty 2 -->
+      <div class="staff-card reveal">
+        <div class="sc-top">
+          <div class="sc-avatar">
+            <img src="https://ui-avatars.com/api/?name=Dr+R+Dhanabalan&background=1a5c3a&color=D4A64A&size=180&bold=true&font-size=0.35" alt="Dr. R. Dhanabalan">
+          </div>
+          <div class="sc-name">Dr. R. Dhanabalan</div>
+          <div class="sc-desig">Associate Professor</div>
+          <div class="sc-qual">Ph.D. Biotechnology | M.Sc. Biochemistry</div>
+        </div>
+        <div class="sc-body">
+          <div class="sc-specialization"><i class="fas fa-atom"></i> Nanobiotechnology · Drug Delivery · Cancer Biology</div>
+          <p>Expert in nanomaterial synthesis and targeted drug delivery systems. Active collaborator with IIT Madras. Published 80+ research articles and holds 2 Indian patents in green nanotechnology applications.</p>
+          <div class="sc-badges">
+            <span class="sc-badge">2 Patents</span>
+            <span class="sc-badge">IIT Collaboration</span>
+            <span class="sc-badge">80+ Papers</span>
+          </div>
+          <div class="sc-links">
+            <a href="#" class="sc-link resume"><i class="fas fa-file-alt" style="margin-right:5px;"></i>Full CV</a>
+            <a href="mailto:dhanabalan@loyolacollege.edu" class="sc-link email"><i class="fas fa-envelope" style="margin-right:5px;"></i>Email</a>
+            <a href="#" class="sc-link scholar"><i class="fas fa-graduation-cap" style="margin-right:5px;"></i>Scholar</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Faculty 3 -->
+      <div class="staff-card reveal">
+        <div class="sc-top">
+          <div class="sc-avatar">
+            <img src="https://ui-avatars.com/api/?name=Dr+P+Jeyasingh&background=1a5c3a&color=D4A64A&size=180&bold=true&font-size=0.35" alt="Dr. P. Jeyasingh">
+          </div>
+          <div class="sc-name">Dr. P. Jeyasingh</div>
+          <div class="sc-desig">Assistant Professor</div>
+          <div class="sc-qual">Ph.D. Zoology | M.Sc. Zoology</div>
+        </div>
+        <div class="sc-body">
+          <div class="sc-specialization"><i class="fas fa-paw"></i> Wildlife Biology · Ornithology · Conservation Genetics</div>
+          <p>A passionate ornithologist and wildlife biologist documenting bird biodiversity across Tamil Nadu wetlands and forests. Published 60+ papers and actively contributes to India's eBird database and State Wildlife Board consultations.</p>
+          <div class="sc-badges">
+            <span class="sc-badge">eBird Contributor</span>
+            <span class="sc-badge">60+ Papers</span>
+            <span class="sc-badge">Wildlife Board</span>
+          </div>
+          <div class="sc-links">
+            <a href="#" class="sc-link resume"><i class="fas fa-file-alt" style="margin-right:5px;"></i>Full CV</a>
+            <a href="mailto:jeyasingh@loyolacollege.edu" class="sc-link email"><i class="fas fa-envelope" style="margin-right:5px;"></i>Email</a>
+            <a href="#" class="sc-link scholar"><i class="fas fa-graduation-cap" style="margin-right:5px;"></i>Scholar</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Faculty 4 -->
+      <div class="staff-card reveal">
+        <div class="sc-top">
+          <div class="sc-avatar">
+            <img src="https://ui-avatars.com/api/?name=Dr+A+Sophia&background=1a5c3a&color=D4A64A&size=180&bold=true&font-size=0.35" alt="Dr. A. Sophia">
+          </div>
+          <div class="sc-name">Dr. A. Sophia</div>
+          <div class="sc-desig">Assistant Professor</div>
+          <div class="sc-qual">Ph.D. Biotechnology | M.Sc. Biotechnology</div>
+        </div>
+        <div class="sc-body">
+          <div class="sc-specialization"><i class="fas fa-virus"></i> Microbiology · Immunology · Bioprospecting</div>
+          <p>Specialises in marine microbial diversity and bioactive compound isolation. DBT-funded researcher with expertise in antibiotic resistance and bioprospecting of marine organisms from Gulf of Mannar. 50+ publications.</p>
+          <div class="sc-badges">
+            <span class="sc-badge">DBT Funded</span>
+            <span class="sc-badge">Marine Biology</span>
+            <span class="sc-badge">50+ Papers</span>
+          </div>
+          <div class="sc-links">
+            <a href="#" class="sc-link resume"><i class="fas fa-file-alt" style="margin-right:5px;"></i>Full CV</a>
+            <a href="mailto:sophia@loyolacollege.edu" class="sc-link email"><i class="fas fa-envelope" style="margin-right:5px;"></i>Email</a>
+            <a href="#" class="sc-link scholar"><i class="fas fa-graduation-cap" style="margin-right:5px;"></i>Scholar</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Faculty 5 -->
+      <div class="staff-card reveal">
+        <div class="sc-top">
+          <div class="sc-avatar">
+            <img src="https://ui-avatars.com/api/?name=Dr+K+Rengarajan&background=1a5c3a&color=D4A64A&size=180&bold=true&font-size=0.35" alt="Dr. K. Rengarajan">
+          </div>
+          <div class="sc-name">Dr. K. Rengarajan</div>
+          <div class="sc-desig">Assistant Professor</div>
+          <div class="sc-qual">Ph.D. Molecular Biology | M.Sc. Zoology</div>
+        </div>
+        <div class="sc-body">
+          <div class="sc-specialization"><i class="fas fa-dna"></i> Molecular Biology · Genomics · Bioinformatics</div>
+          <p>Expert in next-generation sequencing and comparative genomics. Collaborates with NCBS Bangalore on primate conservation genomics. Teaches bioinformatics and computational biology at the PG level. 45+ publications.</p>
+          <div class="sc-badges">
+            <span class="sc-badge">NCBS Collaboration</span>
+            <span class="sc-badge">NGS Expert</span>
+            <span class="sc-badge">45+ Papers</span>
+          </div>
+          <div class="sc-links">
+            <a href="#" class="sc-link resume"><i class="fas fa-file-alt" style="margin-right:5px;"></i>Full CV</a>
+            <a href="mailto:rengarajan@loyolacollege.edu" class="sc-link email"><i class="fas fa-envelope" style="margin-right:5px;"></i>Email</a>
+            <a href="#" class="sc-link scholar"><i class="fas fa-graduation-cap" style="margin-right:5px;"></i>Scholar</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Faculty 6 -->
+      <div class="staff-card reveal">
+        <div class="sc-top">
+          <div class="sc-avatar">
+            <img src="https://ui-avatars.com/api/?name=Dr+V+Chellapandian&background=1a5c3a&color=D4A64A&size=180&bold=true&font-size=0.35" alt="Dr. V. Chellapandian">
+          </div>
+          <div class="sc-name">Dr. V. Chellapandian</div>
+          <div class="sc-desig">Assistant Professor</div>
+          <div class="sc-qual">Ph.D. Environmental Science | M.Sc. Zoology</div>
+        </div>
+        <div class="sc-body">
+          <div class="sc-specialization"><i class="fas fa-globe-asia"></i> Environmental Toxicology · Ecophysiology · Pollution Biology</div>
+          <p>Researches the impact of heavy metals and endocrine disruptors on freshwater organisms. Active member of Tamil Nadu Pollution Control Board advisory committee. 40+ peer-reviewed publications and 3 funded projects.</p>
+          <div class="sc-badges">
+            <span class="sc-badge">TNPCB Advisory</span>
+            <span class="sc-badge">3 Funded Projects</span>
+            <span class="sc-badge">40+ Papers</span>
+          </div>
+          <div class="sc-links">
+            <a href="#" class="sc-link resume"><i class="fas fa-file-alt" style="margin-right:5px;"></i>Full CV</a>
+            <a href="mailto:chellapandian@loyolacollege.edu" class="sc-link email"><i class="fas fa-envelope" style="margin-right:5px;"></i>Email</a>
+            <a href="#" class="sc-link scholar"><i class="fas fa-graduation-cap" style="margin-right:5px;"></i>Scholar</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Faculty 7 -->
+      <div class="staff-card reveal">
+        <div class="sc-top">
+          <div class="sc-avatar">
+            <img src="https://ui-avatars.com/api/?name=Ms+L+Anitha&background=1a5c3a&color=D4A64A&size=180&bold=true&font-size=0.35" alt="Ms. L. Anitha">
+          </div>
+          <div class="sc-name">Ms. L. Anitha</div>
+          <div class="sc-desig">Assistant Professor (Ph.D. Pursuing)</div>
+          <div class="sc-qual">M.Phil. Zoology | M.Sc. Zoology (Gold Medalist)</div>
+        </div>
+        <div class="sc-body">
+          <div class="sc-specialization"><i class="fas fa-seedling"></i> Developmental Biology · Endocrinology · Herpetology</div>
+          <p>A Gold Medalist from the University of Madras, specialising in reptile biology and endocrine function. Actively pursuing doctoral research on hormonal regulation in lizards. Passionate educator with 10 years of teaching experience.</p>
+          <div class="sc-badges">
+            <span class="sc-badge">Gold Medalist</span>
+            <span class="sc-badge">Herpetology</span>
+            <span class="sc-badge">10 Yrs Teaching</span>
+          </div>
+          <div class="sc-links">
+            <a href="#" class="sc-link resume"><i class="fas fa-file-alt" style="margin-right:5px;"></i>Full CV</a>
+            <a href="mailto:anitha@loyolacollege.edu" class="sc-link email"><i class="fas fa-envelope" style="margin-right:5px;"></i>Email</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lab Staff -->
+      <div class="staff-card reveal">
+        <div class="sc-top">
+          <div class="sc-avatar">
+            <img src="https://ui-avatars.com/api/?name=Mr+C+Subramanian&background=23365D&color=D4A64A&size=180&bold=true&font-size=0.35" alt="Mr. C. Subramanian">
+          </div>
+          <div class="sc-name">Mr. C. Subramanian</div>
+          <div class="sc-desig">Senior Laboratory Technician</div>
+          <div class="sc-qual">M.Sc. Zoology | DMLT</div>
+        </div>
+        <div class="sc-body">
+          <div class="sc-specialization"><i class="fas fa-vials"></i> Lab Management · Histotechnique · Microtomy</div>
+          <p>Over 20 years of experience managing the department's zoology and biotechnology laboratories. Expert in histological preparation, dissection demonstration and laboratory safety protocols. Mentor to hundreds of Loyola students.</p>
+          <div class="sc-badges">
+            <span class="sc-badge">20+ Yrs Experience</span>
+            <span class="sc-badge">Histotechnique</span>
+            <span class="sc-badge">Lab Safety</span>
+          </div>
+          <div class="sc-links">
+            <a href="mailto:subramanian.lab@loyolacollege.edu" class="sc-link email"><i class="fas fa-envelope" style="margin-right:5px;"></i>Email</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     RESEARCH
+══════════════════════════════════ */
+<section class="research-section" id="research">
+  <div class="research-inner">
+    <div class="center reveal">
+      <div class="section-eyebrow" style="color:var(--gold);justify-content:center;"><i class="fas fa-flask"></i> Research &amp; Innovation</div>
+      <h2 class="section-title">Research at <em>the Frontier</em></h2>
+      <p class="section-desc" style="color:rgba(255,255,255,0.6);max-width:660px;margin:0 auto;">Active research across multiple frontiers of life science — from tropical biodiversity to cancer molecular biology — with consistent national funding and international publication impact.</p>
+    </div>
+    <div class="res-grid">
+      <div class="res-card reveal"><div class="res-icon"><i class="fas fa-microscope"></i></div><div class="res-num"><span id="r-c1">0</span><sup>+</sup></div><div class="res-lbl">Publications</div></div>
+      <div class="res-card reveal"><div class="res-icon"><i class="fas fa-user-graduate"></i></div><div class="res-num"><span id="r-c2">0</span><sup>+</sup></div><div class="res-lbl">Ph.D. Scholars Guided</div></div>
+      <div class="res-card reveal"><div class="res-icon"><i class="fas fa-rupee-sign"></i></div><div class="res-num"><span id="r-c3">0</span><sup>Cr+</sup></div><div class="res-lbl">Research Funding Received</div></div>
+      <div class="res-card reveal"><div class="res-icon"><i class="fas fa-handshake"></i></div><div class="res-num"><span id="r-c4">0</span><sup>+</sup></div><div class="res-lbl">Active Collaborations</div></div>
+      <div class="res-card reveal"><div class="res-icon"><i class="fas fa-patent"></i></div><div class="res-num"><span id="r-c5">0</span><sup>+</sup></div><div class="res-lbl">Patents Filed/Granted</div></div>
+    </div>
+    <div class="research-areas">
+      <div class="ra-card reveal">
+        <div class="ra-icon"><i class="fas fa-bug"></i></div>
+        <div class="ra-title">Entomology &amp; Biopesticides</div>
+        <div class="ra-desc">Research on insect systematics, biocontrol agents, and eco-friendly biopesticide formulations for sustainable agriculture — reducing chemical pesticide dependency.</div>
+      </div>
+      <div class="ra-card reveal">
+        <div class="ra-icon"><i class="fas fa-dna"></i></div>
+        <div class="ra-title">Molecular Biology &amp; Genomics</div>
+        <div class="ra-desc">Next-generation sequencing, gene expression profiling, comparative genomics, and molecular marker development for conservation and disease diagnosis.</div>
+      </div>
+      <div class="ra-card reveal">
+        <div class="ra-icon"><i class="fas fa-atom"></i></div>
+        <div class="ra-title">Nanobiotechnology</div>
+        <div class="ra-desc">Green synthesis of nanoparticles using plant and marine extracts; applications in targeted drug delivery, antimicrobial coatings and biosensing devices.</div>
+      </div>
+      <div class="ra-card reveal">
+        <div class="ra-icon"><i class="fas fa-water"></i></div>
+        <div class="ra-title">Aquatic &amp; Environmental Biology</div>
+        <div class="ra-desc">Biodiversity assessment of freshwater ecosystems, pollution biology, ecotoxicology of heavy metals, and conservation of threatened aquatic species in Tamil Nadu.</div>
+      </div>
+      <div class="ra-card reveal">
+        <div class="ra-icon"><i class="fas fa-shield-virus"></i></div>
+        <div class="ra-title">Immunology &amp; Cancer Biology</div>
+        <div class="ra-desc">Studies on immune modulation, apoptosis pathways, and natural compound-based anticancer therapeutics — exploring leads from marine and plant biodiversity.</div>
+      </div>
+      <div class="ra-card reveal">
+        <div class="ra-icon"><i class="fas fa-feather-alt"></i></div>
+        <div class="ra-title">Wildlife &amp; Conservation Biology</div>
+        <div class="ra-desc">Ornithological surveys, reptile systematics, population genetics of endangered species and human-wildlife conflict mitigation strategies in South Indian ecosystems.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     ACHIEVEMENTS
+══════════════════════════════════ -->
+<section class="ach-section" id="achievements">
+  <div class="ach-inner">
+    <div class="center reveal">
+      <div class="section-eyebrow"><i class="fas fa-trophy"></i> Honours &amp; Recognition</div>
+      <h2 class="section-title">Our <em>Achievements</em></h2>
+      <p class="section-desc" style="color:#556680;max-width:660px;margin:0 auto;">Decades of academic excellence, national rankings, prestigious fellowships and a global alumni community — the hallmarks of Loyola's life science legacy.</p>
+    </div>
+    <div class="ach-row">
+      <div class="rank-card reveal">
+        <div class="rank-title"><i class="fas fa-certificate"></i>NAAC Grade</div>
+        <div class="rank-val">A<em>+++</em></div>
+        <div class="rank-sub">Loyola College (Autonomous)</div>
+      </div>
+      <div class="rank-card reveal">
+        <div class="rank-title"><i class="fas fa-newspaper"></i>India Today Rank</div>
+        <div class="rank-val">Top <em>10</em></div>
+        <div class="rank-sub">Science Colleges in India</div>
+      </div>
+      <div class="rank-card reveal">
+        <div class="rank-title"><i class="fas fa-flask"></i>DBT Star College</div>
+        <div class="rank-val"><em>Star</em></div>
+        <div class="rank-sub">Dept. of Biotechnology, Govt. of India</div>
+      </div>
+      <div class="rank-card reveal">
+        <div class="rank-title"><i class="fas fa-medal"></i>UGC SAP</div>
+        <div class="rank-val"><em>DRS</em></div>
+        <div class="rank-sub">Special Assistance Programme</div>
+      </div>
+    </div>
+    <div class="accolades-list">
+      <div class="acc-item reveal">
+        <div class="acc-icon"><i class="fas fa-award"></i></div>
+        <div class="acc-text">
+          <h4>Fellow of the National Academy of Sciences (FNASc)</h4>
+          <p>Dr. S. Ignacimuthu, SJ recognised by the National Academy of Sciences, India for outstanding contributions to entomology and biopesticide research.</p>
+        </div>
+      </div>
+      <div class="acc-item reveal">
+        <div class="acc-icon"><i class="fas fa-flask"></i></div>
+        <div class="acc-text">
+          <h4>DBT Star College Scheme</h4>
+          <p>Department recognised under the Department of Biotechnology's prestigious Star College Scheme for excellence in undergraduate biology education and infrastructure.</p>
+        </div>
+      </div>
+      <div class="acc-item reveal">
+        <div class="acc-icon"><i class="fas fa-rupee-sign"></i></div>
+        <div class="acc-text">
+          <h4>UGC Special Assistance Programme (SAP–DRS)</h4>
+          <p>Awarded under UGC-SAP for sustained research output and doctoral mentorship in zoology — enabling infrastructure and research grants for faculty and scholars.</p>
+        </div>
+      </div>
+      <div class="acc-item reveal">
+        <div class="acc-icon"><i class="fas fa-microscope"></i></div>
+        <div class="acc-text">
+          <h4>ICMR &amp; DST–SERB Research Grants</h4>
+          <p>Multiple faculty members are principal investigators on ICMR, DST and SERB funded projects totalling over ₹3 Crore in active research funding.</p>
+        </div>
+      </div>
+      <div class="acc-item reveal">
+        <div class="acc-icon"><i class="fas fa-globe"></i></div>
+        <div class="acc-text">
+          <h4>International Collaborations</h4>
+          <p>Active MoUs and collaborative research with institutions in Japan, Germany, USA, South Korea and Australia — enabling student and faculty exchange programmes.</p>
+        </div>
+      </div>
+      <div class="acc-item reveal">
+        <div class="acc-icon"><i class="fas fa-star"></i></div>
+        <div class="acc-text">
+          <h4>Entomology Research Institute (ERI)</h4>
+          <p>ERI, housed within the department, is a nationally reputed research unit with 30+ years of research in insect biology, biopesticides and sustainable agriculture.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     WILDLIFE / BIODIVERSITY SHOWCASE
+══════════════════════════════════ -->
+<section class="wildlife-section">
+  <div class="wildlife-inner">
+    <div class="wl-left reveal-left">
+      <div class="section-eyebrow" style="color:var(--gold);"><i class="fas fa-paw"></i> Biodiversity &amp; Wildlife</div>
+      <h2 class="section-title">Exploring <em>India's Wild</em></h2>
+      <p class="section-desc">From the mangroves of the Pichavaram to the Nilgiri Biosphere Reserve — our students and researchers engage with India's extraordinary biodiversity through field surveys, conservation projects and taxonomic studies that contribute to national and global knowledge.</p>
+      <div class="wl-stats">
+        <div class="wl-stat"><div class="ws-num">150+</div><div class="ws-lbl">Bird Species Documented</div></div>
+        <div class="wl-stat"><div class="ws-num">80+</div><div class="ws-lbl">Insect Species Identified</div></div>
+        <div class="wl-stat"><div class="ws-num">25+</div><div class="ws-lbl">Field Survey Sites</div></div>
+        <div class="wl-stat"><div class="ws-num">12+</div><div class="ws-lbl">Conservation Projects</div></div>
+      </div>
+    </div>
+    <div class="bio-icon-grid reveal-right">
+      <div class="bio-icon-card">
+        <i class="fas fa-feather-alt"></i>
+        <span>Ornithology</span>
+      </div>
+      <div class="bio-icon-card">
+        <i class="fas fa-frog"></i>
+        <span>Herpetology</span>
+      </div>
+      <div class="bio-icon-card">
+        <i class="fas fa-bug"></i>
+        <span>Entomology</span>
+      </div>
+      <div class="bio-icon-card">
+        <i class="fas fa-fish"></i>
+        <span>Ichthyology</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     FACILITIES & LABS
+══════════════════════════════════ -->
+<section class="facilities-section" id="facilities">
+  <div class="facilities-inner">
+    <div class="center reveal">
+      <div class="section-eyebrow"><i class="fas fa-microscope"></i> Infrastructure</div>
+      <h2 class="section-title">Laboratories &amp; <em>Facilities</em></h2>
+      <p class="section-desc" style="color:#556680;max-width:640px;margin:0 auto;">State-of-the-art research and teaching laboratories equipped with modern instruments, supporting high-quality experimental science from undergraduate to doctoral level.</p>
+    </div>
+    <div class="fac-grid">
+      <div class="fac-card reveal">
+        <div class="fac-icon"><i class="fas fa-dna"></i></div>
+        <h3>Molecular Biology Lab</h3>
+        <p>Equipped with PCR systems, gel electrophoresis units, spectrophotometers, microcentrifuges and ultra-low temperature freezers for genomics and molecular biology research.</p>
+      </div>
+      <div class="fac-card reveal">
+        <div class="fac-icon"><i class="fas fa-vial"></i></div>
+        <h3>Biotechnology Research Lab</h3>
+        <p>Facilities for cell culture (CO₂ incubator, laminar flow), ELISA, Western blotting, fluorescence microscopy and protein purification — supporting advanced biotech research.</p>
+      </div>
+      <div class="fac-card reveal">
+        <div class="fac-icon"><i class="fas fa-microscope"></i></div>
+        <h3>Advanced Microscopy Suite</h3>
+        <p>Compound and stereo microscopes, phase contrast, dark field and fluorescence microscopy. Histology section with microtome, tissue processor and staining facilities.</p>
+      </div>
+      <div class="fac-card reveal">
+        <div class="fac-icon"><i class="fas fa-laptop-code"></i></div>
+        <h3>Bioinformatics Centre</h3>
+        <p>Dedicated computer lab with internet connectivity, bioinformatics software (MEGA, BLAST, CLUSTAL, PyMOL, AutoDock) and access to NCBI, UniProt and PDB databases.</p>
+      </div>
+      <div class="fac-card reveal">
+        <div class="fac-icon"><i class="fas fa-fish"></i></div>
+        <h3>Aquatic Biology Unit</h3>
+        <p>Aquarium facility for maintaining freshwater fish and invertebrate cultures; limnological equipment for field sampling; DO meter, turbidity meter, spectrophotometer.</p>
+      </div>
+      <div class="fac-card reveal">
+        <div class="fac-icon"><i class="fas fa-bug"></i></div>
+        <h3>Entomology Research Institute</h3>
+        <p>A nationally recognised research unit with insect rearing facilities, biopesticide formulation chambers, scanning electron microscope and extensive reference collections.</p>
+      </div>
+      <div class="fac-card reveal">
+        <div class="fac-icon"><i class="fas fa-book"></i></div>
+        <h3>Departmental Library</h3>
+        <p>Well-stocked with zoology and biotechnology textbooks, journals (Nature, Science, Cell), bound theses, reference specimens and digital access to Elsevier and Springer databases.</p>
+      </div>
+      <div class="fac-card reveal">
+        <div class="fac-icon"><i class="fas fa-school"></i></div>
+        <h3>Seminar Hall</h3>
+        <p>Dedicated air-conditioned seminar hall with modern audio-visual infrastructure for guest lectures, research presentations, journal clubs and departmental events.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     EVENTS
+══════════════════════════════════ -->
+<section class="events-section" id="events">
+  <div class="events-inner">
+    <div class="center reveal">
+      <div class="section-eyebrow"><i class="fas fa-calendar-alt"></i> Departmental Events</div>
+      <h2 class="section-title">Academic &amp; <em>Outreach Events</em></h2>
+      <p class="section-desc" style="color:#556680;max-width:580px;margin:0 auto;">A vibrant calendar of seminars, workshops, field trips and biodiversity festivals that bring science to life at Loyola.</p>
+    </div>
+    <div class="events-grid">
+      <div class="event-card reveal">
+        <div class="event-date"><div class="event-day">22</div><div class="event-month">Apr</div></div>
+        <div class="event-body"><span class="event-tag"><i class="fas fa-leaf" style="margin-right:3px;"></i>Conservation</span><div class="event-title">World Earth Day – BioBlitz</div><div class="event-desc">Annual campus-wide species documentation event encouraging students and faculty to identify and record flora and fauna across the Loyola College campus ecosystem.</div></div>
+      </div>
+      <div class="event-card reveal">
+        <div class="event-date"><div class="event-day">20</div><div class="event-month">May</div></div>
+        <div class="event-body"><span class="event-tag"><i class="fas fa-crow" style="margin-right:3px;"></i>Ornithology</span><div class="event-title">World Bee &amp; Migratory Bird Day</div><div class="event-desc">Campus bird walks, pollinator surveys and public awareness activities celebrating the ecological importance of birds, bees and migratory species across South India.</div></div>
+      </div>
+      <div class="event-card reveal">
+        <div class="event-date"><div class="event-day" style="font-size:15px;">Aug</div><div class="event-month">Annual</div></div>
+        <div class="event-body"><span class="event-tag"><i class="fas fa-graduation-cap" style="margin-right:3px;"></i>National</span><div class="event-title">ZARB – National Student Symposium</div><div class="event-desc">The department's flagship national symposium for undergraduate and postgraduate students — featuring paper presentations, poster competitions and guest lectures by eminent scientists.</div></div>
+      </div>
+      <div class="event-card reveal">
+        <div class="event-date"><div class="event-day" style="font-size:15px;">Nov</div><div class="event-month">Workshop</div></div>
+        <div class="event-body"><span class="event-tag"><i class="fas fa-tools" style="margin-right:3px;"></i>Skill</span><div class="event-title">Advanced Techniques Workshop</div><div class="event-desc">Hands-on training workshops in PCR, gel electrophoresis, cell culture, molecular docking and bioinformatics — open to PG students from across Chennai universities.</div></div>
+      </div>
+      <div class="event-card reveal">
+        <div class="event-date"><div class="event-day" style="font-size:14px;">Field</div><div class="event-month">Trips</div></div>
+        <div class="event-body"><span class="event-tag"><i class="fas fa-hiking" style="margin-right:3px;"></i>Field Study</span><div class="event-title">Wildlife &amp; Ecology Field Excursions</div><div class="event-desc">Annual educational visits to Vedanthangal Bird Sanctuary, Guindy National Park, Mudumalai Tiger Reserve and marine ecosystems for biodiversity documentation and ecology study.</div></div>
+      </div>
+      <div class="event-card reveal">
+        <div class="event-date"><div class="event-day" style="font-size:14px;">Jan</div><div class="event-month">Expo</div></div>
+        <div class="event-body"><span class="event-tag"><i class="fas fa-flask" style="margin-right:3px;"></i>Research</span><div class="event-title">Departmental Research Exposition</div><div class="event-desc">Annual display of ongoing Ph.D. and PG dissertation research — fostering cross-pollination of ideas and mentorship between senior research scholars and undergraduate students.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     CONTACT
+══════════════════════════════════ -->
+<section class="contact-section" id="contact">
+  <div class="contact-inner">
+    <div class="center reveal">
+      <div class="section-eyebrow"><i class="fas fa-envelope"></i> Reach Us</div>
+      <h2 class="section-title">Contact the <em>Department</em></h2>
+    </div>
+    <div style="margin-top:48px;">
+      <div class="ci-card reveal">
+        <div class="ci-grid">
+          <div class="ci-item">
+            <div class="ci-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <div class="ci-text">
+              <h4>Address</h4>
+              <p>Dept. of Advanced Zoology &amp; Biotechnology<br>Loyola College (Autonomous)<br>Sterling Road, Nungambakkam<br>Chennai – 600 034, Tamil Nadu, India</p>
+            </div>
+          </div>
+          <div class="ci-item">
+            <div class="ci-icon"><i class="fas fa-phone"></i></div>
+            <div class="ci-text">
+              <h4>Phone</h4>
+              <a href="tel:+914428178200">+91 - 44 - 28178200</a>
+              <a href="tel:+914428178200">Extn. 285 (Dept. Office)</a>
+            </div>
+          </div>
+          <div class="ci-item">
+            <div class="ci-icon"><i class="fas fa-envelope"></i></div>
+            <div class="ci-text">
+              <h4>Email</h4>
+              <a href="mailto:zoology@loyolacollege.edu">zoology@loyolacollege.edu</a>
+              <a href="mailto:biotechnology@loyolacollege.edu">biotechnology@loyolacollege.edu</a>
+            </div>
+          </div>
+          <div class="ci-item">
+            <div class="ci-icon"><i class="fas fa-globe"></i></div>
+            <div class="ci-text">
+              <h4>Website</h4>
+              <a href="https://www.loyolacollege.edu" target="_blank">www.loyolacollege.edu</a>
+              <a href="https://www.loyolacollege.edu/academics/zoology" target="_blank">Department Page</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="map-embed reveal">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.6025642646394!2d80.2312674757342!3d13.061033213000632!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52668542b9ca6b%3A0xfe3d86401c60ec27!2sLoyola%20College!5e0!3m2!1sen!2sin!4v1715331000000!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Loyola College Location"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     FOOTER
+══════════════════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="fb">
+        <h2>Dept. of Advanced Zoology &amp; Biotechnology</h2>
+        <p class="sub"><i class="fas fa-dna" style="margin-right:4px;font-size:9px;"></i>Loyola College (Autonomous) · Est. 1948 · Chennai</p>
+        <p>A premier PG &amp; Research Department within Loyola College — dedicated to excellence in life science education, biodiversity research, and biotechnology innovation. NAAC A+++ Accredited. DBT Star College.</p>
+      </div>
+      <div class="fc">
+        <h4><i class="fas fa-graduation-cap" style="margin-right:4px;"></i>Academics</h4>
+        <ul>
+          <li><a href="#programmes">B.Sc. Advanced Zoology &amp; Biotech</a></li>
+          <li><a href="#programmes">M.Sc. Zoology &amp; Biotechnology</a></li>
+          <li><a href="#programmes">Ph.D. Research</a></li>
+          <li><a href="#programmes">Certificate Courses</a></li>
+          <li><a href="#facilities">Laboratories</a></li>
+          <li><a href="https://www.loyolacollege.edu/research" target="_blank">Research Publications</a></li>
+        </ul>
+      </div>
+      <div class="fc">
+        <h4><i class="fas fa-link" style="margin-right:4px;"></i>Quick Links</h4>
+        <ul>
+          <li><a href="#faculty">Faculty Profiles</a></li>
+          <li><a href="#research">Research Areas</a></li>
+          <li><a href="#events">Departmental Events</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+          <li><a href="https://www.loyolacollege.edu" target="_blank">Loyola College Website</a></li>
+          <li><a href="https://www.loyolacollege.edu/admission" target="_blank">Admissions</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 PG &amp; Research Dept. of Advanced Zoology &amp; Biotechnology, Loyola College (Autonomous), Chennai. All rights reserved.</p>
+      <div class="accr-badges">
+        <span class="abadge">NAAC A+++</span>
+        <span class="abadge">DBT Star</span>
+        <span class="abadge">UGC SAP</span>
+        <span class="abadge">Est. 1948</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Back to top -->
+<button class="btt" id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">
+  <i class="fas fa-chevron-up"></i>
+</button>
+
+<script>
+/* ── SCROLL REVEAL ── */
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 80);
+  });
+}, { threshold: 0.07, rootMargin: '0px 0px -30px 0px' });
+document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => observer.observe(el));
+
+/* ── BACK TO TOP ── */
+const bttBtn = document.getElementById('btt');
+window.addEventListener('scroll', () => { bttBtn.classList.toggle('visible', window.scrollY > 400); });
+
+/* ── COUNTER ANIMATION ── */
+function animateCount(id, target, duration = 1800) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  let start = 0, step = target / (duration / 16);
+  const t = setInterval(() => {
+    start = Math.min(start + step, target);
+    el.textContent = Math.floor(start);
+    if (start >= target) clearInterval(t);
+  }, 16);
+}
+
+/* Hero counters */
+animateCount('h-c1', 76);   // years
+animateCount('h-c2', 420);  // students
+animateCount('h-c3', 45);   // scholars
+animateCount('h-c4', 12);   // faculty
+animateCount('h-c5', 700);  // publications
+
+/* Research counters — fire on scroll */
+const resObserver = new IntersectionObserver((entries) => {
+  if (entries[0].isIntersecting) {
+    animateCount('r-c1', 700);
+    animateCount('r-c2', 120);
+    animateCount('r-c3', 3);
+    animateCount('r-c4', 18);
+    animateCount('r-c5', 5);
+    resObserver.disconnect();
+  }
+}, { threshold: 0.2 });
+const resSec = document.querySelector('.research-section');
+if (resSec) resObserver.observe(resSec);
+
+/* ── PROGRAMME FILTER ── */
+function filterProg(cat, btn) {
+  document.querySelectorAll('.p-tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.prog-card').forEach((c, i) => {
+    const show = cat === 'all' || c.dataset.cat === cat;
+    c.style.display = show ? 'block' : 'none';
+    if (show) {
+      c.style.animation = 'none';
+      c.offsetHeight;
+      c.style.animation = `cardIn 0.4s ease ${i * 0.05}s both`;
+    }
+  });
+}
+
+/* Card-in animation for programme filter */
+const styleEl = document.createElement('style');
+styleEl.textContent = `@keyframes cardIn { from{opacity:0;transform:scale(0.95)} to{opacity:1;transform:scale(1)} }`;
+document.head.appendChild(styleEl);
+</script>
+</body>
+</html>
