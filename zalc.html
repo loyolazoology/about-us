@@ -192,8 +192,8 @@ a{text-decoration:none;color:inherit}
 .lc-dept{display:inline-block;padding:3px 10px;border-radius:100px;font-size:9px;font-weight:600;background:var(--mist);color:var(--deep);border:1px solid rgba(43,143,163,0.18)}
 
 /* ═══════════════════════════ MEMBERS ═══════════════════════════ */
-.members-section{padding:clamp(72px,9vw,120px) 0;background:var(--midnight);position:relative;overflow:hidden}
-.members-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 0% 50%,rgba(43,143,163,0.09)0%,transparent 55%),radial-gradient(ellipse 55% 70% at 100% 50%,rgba(26,94,114,0.12)0%,transparent 55%);pointer-events:none}
+.members-section{padding:clamp(72px,9vw,120px) 0;background:#000;position:relative;overflow:hidden}
+.members-bg{position:absolute;inset:0;background:var(--midnight),transparent 55%),radial-gradient(ellipse 55% 70% at 100% 50%,rgba(26,94,114,0.12)0%,transparent 55%);pointer-events:none}
 .members-header{text-align:center;margin-bottom:56px}
 
 .members-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:14px}
@@ -211,7 +211,7 @@ a{text-decoration:none;color:inherit}
 
 .mc-body{padding:11px 13px 14px}
 .mc-name{font-family:'Playfair Display',serif;font-size:13px;font-weight:600;color:rgba(255,255,255,0.9);margin-bottom:4px;line-height:1.3}
-.mc-pos{font-size:8.5px;font-weight:500;color:rgba(91,191,191,0.7);margin-bottom:6px;line-height:1.45}
+.mc-pos{font-size:9px;font-weight:500;color:#fff;margin-bottom:6px;line-height:1.45}
 .mc-tags{display:flex;gap:4px;flex-wrap:wrap}
 .mc-tag{padding:2px 7px;border-radius:100px;font-size:7.5px;font-weight:600;background:rgba(91,191,191,0.09);color:rgba(255,255,255,0.38);border:1px solid rgba(91,191,191,0.11)}
 
@@ -381,7 +381,6 @@ footer{background:var(--midnight);border-top:1px solid rgba(91,191,191,0.10);pad
   <div class="container">
     <div class="about-grid">
       <div class="rv-l">
-        <div class="dept-badge"><i class="fas fa-microscope" style="font-size:8px"></i> PG &amp; Research Department</div>
         <h2 class="about-headline">About <em>ZALC</em> &amp;<br>Our Department</h2>
         <p class="about-body">The Zoologist Association of Loyola College (ZALC) is the student association of the PG &amp; Research Department of Advanced Zoology &amp; Biotechnology, Loyola College (Autonomous), Chennai – 600 034.
 
@@ -391,7 +390,7 @@ The Department of Advanced Zoology &amp; Biotechnology at Loyola College is one 
 
 Loyola College (Autonomous), established in 1925 by the Society of Jesus, is a NAAC A+++ accredited institution ranked among India's Top 10 colleges by India Today.</p>
         <div class="stats-grid">
-          <div class="stat-card rv"><div class="stat-num">1957</div><div class="stat-label">Dept. Founded</div></div>
+          <div class="stat-card rv"><div class="stat-num">1948</div><div class="stat-label">Dept. Founded</div></div>
           <div class="stat-card rv"><div class="stat-num">A+++</div><div class="stat-label">NAAC Grade</div></div>
           <div class="stat-card rv"><div class="stat-num">100<span style="font-size:16px"> yrs</span></div><div class="stat-label">Loyola Legacy</div></div>
           <div class="stat-card rv"><div class="stat-num">DBT <i class="fas fa-star" style="font-size:14px"></i></div><div class="stat-label">Star College</div></div>
@@ -489,10 +488,10 @@ Loyola College (Autonomous), established in 1925 by the Society of Jesus, is a N
             <div class="dci"><i class="fas fa-flask"></i></div>
             <div>
               <h3>Department Heritage</h3>
-              <div class="sub">Established 1957 · 60+ Years of Excellence</div>
+              <div class="sub">Established 1948 · 70+ Years of Excellence</div>
             </div>
           </div>
-          <p>The Department of Natural Sciences was started in 1948 at Loyola College. A full-fledged Department of Zoology was established in 1957 offering B.Sc. Zoology. Over six decades, it has grown into the PG &amp; Research Department of Advanced Zoology &amp; Biotechnology — a nationally recognised centre for life-science education and research.</p>
+          <p>The Department of Natural Sciences was started in 1948 at Loyola College. A full-fledged Department of Zoology was established in 1948 offering B.Sc. Zoology. Over six decades, it has grown into the PG &amp; Research Department of Advanced Zoology &amp; Biotechnology — a nationally recognised centre for life-science education and research.</p>
           <ul class="info-list">
             <li><i class="fas fa-graduation-cap"></i><span><strong>Programmes Offered</strong>B.Sc. Advanced Zoology &amp; Biotechnology · M.Sc. Zoology · Ph.D. Zoology &amp; Biotechnology</span></li>
             <li><i class="fas fa-award"></i><span><strong>Recognition</strong>DBT Star College · DST-FIST Funded · UGC-SAP Department of Special Assistance</span></li>
@@ -520,29 +519,10 @@ Loyola College (Autonomous), established in 1925 by the Society of Jesus, is a N
           <ul class="info-list" style="margin-top:16px">
             <li><i class="fas fa-map-marker-alt"></i><span><strong>Address</strong>Sterling Road, Nungambakkam, Chennai – 600 034, Tamil Nadu, India</span></li>
             <li><i class="fas fa-link"></i><span><strong>Website</strong><a href="https://www.loyolacollege.edu" target="_blank" style="color:var(--glacier);text-decoration:underline">www.loyolacollege.edu</a></span></li>
-            <li><i class="fas fa-certificate"></i><span><strong>Affiliation</strong>University of Madras · UGC Recognised · DBT Star College</span></li>
+            <li><i class="fas fa-certificate"></i><span><strong>Affiliation</strong>University of Madras</span></li>
           </ul>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════ VALUES ═══════════════ -->
-<section class="values-section" id="values">
-  <div class="container">
-    <div class="center rv">
-      <div class="section-eyebrow" style="justify-content:center"><span class="line"></span><i class="fas fa-heart"></i> What We Stand For <span class="line r"></span></div>
-      <h2 class="section-title">Our Core <em>Pillars</em></h2>
-      <p class="section-sub center">The values that drive ZALC — rooted in Jesuit education and scientific pursuit.</p>
-    </div>
-    <div class="values-grid">
-      <div class="val-card rv"><div class="val-icon"><i class="fas fa-dna"></i></div><h3>Scientific Inquiry</h3><p>Encouraging a spirit of discovery and rigorous inquiry into the living world — from molecules to ecosystems — empowering students to think like scientists.</p></div>
-      <div class="val-card rv"><div class="val-icon"><i class="fas fa-globe-asia"></i></div><h3>Environmental Conscience</h3><p>Cultivating deep respect for biodiversity and ecological balance. ZALC members are trained advocates for conservation and sustainable stewardship of natural resources.</p></div>
-      <div class="val-card rv"><div class="val-icon"><i class="fas fa-hands-helping"></i></div><h3>Service to Society</h3><p>In the Jesuit tradition of <em>Men and Women for Others</em>, ZALC integrates scientific knowledge with a commitment to addressing real-world challenges in health and environment.</p></div>
-      <div class="val-card rv"><div class="val-icon"><i class="fas fa-star"></i></div><h3>Academic Excellence</h3><p>Pursuing the Jesuit call of <em>Magis</em> — always striving for more — in academics, research publications, intercollegiate competitions and national-level symposia.</p></div>
-      <div class="val-card rv"><div class="val-icon"><i class="fas fa-users"></i></div><h3>Inclusive Community</h3><p>Building a welcoming community across undergraduate, postgraduate and research streams where every student finds belonging, mentorship and opportunity.</p></div>
-      <div class="val-card rv"><div class="val-icon"><i class="fas fa-lightbulb"></i></div><h3>Innovation &amp; Creativity</h3><p>ZALC's annual theme and logo encourage creative thinking about pressing global issues — from glacier preservation to climate resilience — inspiring youth-led advocacy.</p></div>
     </div>
   </div>
 </section>
@@ -568,7 +548,7 @@ Loyola College (Autonomous), established in 1925 by the Society of Jesus, is a N
           <img id="footer-logo" src="" alt="ZALC" style="display:none">
           <div id="footer-name" class="fbrand-name">ZALC</div>
         </div>
-        <p class="fbrand-desc">Zoologist Association of Loyola College — the student association of the PG &amp; Research Department of Advanced Zoology &amp; Biotechnology, fostering scientific curiosity, leadership and environmental stewardship since 1957.</p>
+        <p class="fbrand-desc">Zoologist Association of Loyola College — the student association of the PG &amp; Research Department of Advanced Zoology &amp; Biotechnology, fostering scientific curiosity, leadership and environmental stewardship since 1948.</p>
         <div class="fbrand-addr">
           <i class="fas fa-map-marker-alt"></i>PG &amp; Research Dept. of Advanced Zoology &amp; Biotechnology<br>
           Loyola College (Autonomous), Sterling Road, Nungambakkam<br>
@@ -678,7 +658,6 @@ function buildLeader(m, isHOD) {
       <div class="lc-role-pill">${m['Position']||''}</div>
     </div>
     <div class="lc-body">
-      ${isHOD?'<div class="lc-hod-tag"><i class="fas fa-crown" style="font-size:7px"></i> Head of Department</div>':''}
       <div class="lc-name">${m['Name']||''}</div>
       ${m['Class']?`<div class="lc-class">${m['Class']}</div>`:''}
       ${m['Dept No']?`<span class="lc-dept">${m['Dept No']}</span>`:''}
@@ -709,13 +688,12 @@ function buildMember(m) {
   return d;
 }
 
-/* ── BUILDER: LEGACY ENTRY ── */
+/* ── BUILDER: LEGACY ENTRY (SIMPLIFIED) ── */
 function buildLegacy(row, allMembers, idx, isCurrent) {
   const ay    = row['Academic Year']||'';
   const name  = (row['ZALC Name']||'ZALC').toUpperCase();
   const logo  = toImg(row['ZALC Logo']||'');
   const theme = row['Theme']||'';
-  const desc  = parseDesc(row['Description']||'');
   const motto = row['Motto']||'';
   const ayShort = ay.split('-').map(y=>y.slice(2)).join('–');
   const id    = `leg-${idx}`;
@@ -746,16 +724,12 @@ function buildLegacy(row, allMembers, idx, isCurrent) {
         </div>
         ${isCurrent?'<span class="cur-tag">Current</span>':''}
       </div>
-      <div class="leg-toggle" id="tog-${id}" onclick="toggleLeg('${id}')">
-        <span>View Details</span>
-        <i class="fas fa-chevron-down leg-toggle-icon"></i>
-      </div>
-      <div class="leg-body" id="bod-${id}">
-        ${desc?`<div class="leg-desc">${escHtml(desc)}</div>`:''}
+      <div class="leg-body" id="bod-${id}" style="display: block;">
         ${motto?`<div class="leg-motto"><i class="fas fa-quote-left" style="margin-right:7px;opacity:.4;font-size:9px"></i>${motto}</div>`:''}
         ${chips?`<div class="leg-chips">${chips}</div>`:''}
       </div>
     </div>`;
+
   const empty = `<div class="leg-empty"></div>`;
   const isLeft = idx%2===0;
 
@@ -765,6 +739,7 @@ function buildLegacy(row, allMembers, idx, isCurrent) {
     ${isLeft?cardHtml:empty}
     <div class="leg-axis"><div class="leg-node${isCurrent?' cur':''}">${ayShort}</div></div>
     ${isLeft?empty:cardHtml}`;
+    
   return {entry, id, isCurrent};
 }
 
