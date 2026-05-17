@@ -17,13 +17,13 @@
   --gold-light: #f0c96a;
   --gold-dim: #b8893a;
   --maroon-dark: #4e1820;
-  --green: #1a5c3a;
-  --green-light: #2e8b57;
-  --green-pale: #e8f5ee;
+  --blue: #004D99;
+  --blue-light: #2e8b57;
+  --blue-pale: #e8f5ee;
   --teal: #0d7377;
   --shadow-soft: 0 8px 40px rgba(35,54,93,0.10);
   --shadow-lift: 0 20px 60px rgba(35,54,93,0.16);
-  --shadow-green: 0 8px 32px rgba(26,92,58,0.18);
+  --shadow-blue: 0 8px 32px rgba(26,92,58,0.18);
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; font-size: 16px; }
@@ -70,14 +70,14 @@ body { font-family: 'Raleway', sans-serif; background: var(--white); color: var(
 .pn-text { flex: 1; min-width: 200px; }
 .pn-label { font-size: 9px; font-weight: 800; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold-dim); margin-bottom: 3px; }
 .pn-msg { font-size: 13px; font-weight: 600; color: var(--blue); line-height: 1.5; }
-.pn-msg em { color: var(--green); font-style: normal; font-weight: 800; }
-.pn-badge { background: var(--green); color: var(--white); font-size: 9.5px; font-weight: 800; letter-spacing: 1px; padding: 5px 14px; border-radius: 100px; white-space: nowrap; }
+.pn-msg em { color: var(--blue); font-style: normal; font-weight: 800; }
+.pn-badge { background: var(--blue); color: var(--white); font-size: 9.5px; font-weight: 800; letter-spacing: 1px; padding: 5px 14px; border-radius: 100px; white-space: nowrap; }
 
 /* ══════════════════════════════════
    HERO BANNER
 ══════════════════════════════════ */
 .hero-banner {
-  background: linear-gradient(135deg, #0f3d25 0%, #1a5c3a 50%, #1e6b44 80%, #0d5c34 100%);
+  background: linear-gradient(135deg, #001A33 0%, #003366 50%, #004D99 80%, #00264D 100%);
   padding: clamp(50px,8vw,110px) clamp(16px,5vw,56px) clamp(44px,7vw,88px);
   text-align: center;
   position: relative;
@@ -196,14 +196,14 @@ body { font-family: 'Raleway', sans-serif; background: var(--white); color: var(
 .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(36px,5vw,80px); align-items: center; margin-top: 52px; }
 .about-text .section-desc { color: #556680; margin-bottom: 18px; }
 .origin-box {
-  background: linear-gradient(135deg, var(--green-pale), #f0faf5);
+  background: linear-gradient(135deg, var(--blue-pale), #f0faf5);
   border: 1.5px solid rgba(26,92,58,0.2);
-  border-left: 5px solid var(--green);
+  border-left: 5px solid var(--blue);
   border-radius: 14px; padding: 22px 24px; margin-top: 24px;
 }
-.origin-box .ob-label { font-size: 9px; font-weight: 800; letter-spacing: 2.5px; text-transform: uppercase; color: var(--green); margin-bottom: 8px; }
+.origin-box .ob-label { font-size: 9px; font-weight: 800; letter-spacing: 2.5px; text-transform: uppercase; color: var(--blue); margin-bottom: 8px; }
 .origin-box p { font-size: 13px; color: #445566; line-height: 1.78; font-family: 'Cormorant Garamond', serif; font-size: 16px; }
-.origin-box strong { color: var(--green); font-style: normal; }
+.origin-box strong { color: var(--blue); font-style: normal; }
 
 /* Image placeholder for about */
 .about-img-block { position: relative; }
@@ -212,15 +212,55 @@ body { font-family: 'Raleway', sans-serif; background: var(--white); color: var(
   border-radius: 20px;
   border: 2px dashed rgba(26,92,58,0.25);
   overflow: hidden;
-  aspect-ratio: 4/3;
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
-  gap: 12px; color: rgba(26,92,58,0.4);
+  width: 100%;
+  height: auto; 
+  min-height: 200px;
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: center;
+  gap: 12px; 
+  color: rgba(26,92,58,0.4);
   transition: border-color 0.3s, background 0.3s;
   position: relative;
 }
-.about-img-frame:hover { border-color: rgba(26,92,58,0.5); background: var(--green-pale); }
+
 .about-img-frame img.actual-img {
-  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 18px; display: none;
+  position: relative;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 18px;
+  display: none;
+}
+
+.launch-img-wrap {
+  margin-top: 48px;
+  background: rgba(255,255,255,0.07);
+  border: 1.5px dashed rgba(212,166,74,0.3);
+  border-radius: 20px;
+  overflow: hidden;
+  width: 100%;
+  height: auto;
+  min-height: 180px;
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: center;
+  gap: 14px; 
+  color: rgba(212,166,74,0.4);
+  transition: all 0.3s; 
+  position: relative; 
+  max-height: 420px;
+}
+
+.launch-img-wrap img.actual-img {
+  position: relative;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 18px;
+  display: none;
 }
 .about-img-frame img.actual-img.loaded { display: block; }
 .img-placeholder-icon { font-size: 44px; }
@@ -249,9 +289,9 @@ body { font-family: 'Raleway', sans-serif; background: var(--white); color: var(
 .pillars-inner { max-width: 1160px; margin: 0 auto; }
 .pillars-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); gap: 24px; margin-top: 48px; }
 .pillar-card { background: var(--white); border-radius: 18px; padding: 32px 26px; border: 1.5px solid rgba(35,54,93,0.09); transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s; position: relative; overflow: hidden; }
-.pillar-card::before { content:''; position:absolute; top:0; left:0; right:0; height:4px; background:linear-gradient(90deg,var(--green),var(--teal),var(--gold)); }
+.pillar-card::before { content:''; position:absolute; top:0; left:0; right:0; height:4px; background:linear-gradient(90deg,var(--blue),var(--teal),var(--gold)); }
 .pillar-card:hover { transform: translateY(-7px); box-shadow: var(--shadow-lift); border-color: rgba(26,92,58,0.25); }
-.pillar-icon { width: 54px; height: 54px; border-radius: 13px; background: linear-gradient(135deg,var(--green),var(--green-light)); display: flex; align-items: center; justify-content: center; margin-bottom: 20px; font-size: 20px; color: var(--gold); box-shadow: var(--shadow-green); }
+.pillar-icon { width: 54px; height: 54px; border-radius: 13px; background: linear-gradient(135deg,var(--blue),var(--blue-light)); display: flex; align-items: center; justify-content: center; margin-bottom: 20px; font-size: 20px; color: var(--gold); box-shadow: var(--shadow-blue); }
 .pillar-card h3 { font-family: 'Playfair Display', serif; font-size: 19px; font-weight: 700; color: var(--blue); margin-bottom: 10px; }
 .pillar-card p { font-size: 13px; line-height: 1.85; color: #556680; }
 
@@ -337,15 +377,16 @@ body { font-family: 'Raleway', sans-serif; background: var(--white); color: var(
 .lnc-content p { font-size: 13.5px; color: #556680; line-height: 1.8; font-family: 'Cormorant Garamond', serif; font-size: 16.5px; }
 
 /* Person cards grid */
-.team-category-label { font-size: 10px; font-weight: 800; letter-spacing: 3px; text-transform: uppercase; color: var(--green); margin: 48px 0 24px; display: flex; align-items: center; gap: 14px; }
+.team-category-label { font-size: 10px; font-weight: 800; letter-spacing: 3px; text-transform: uppercase; color: var(--blue); margin: 48px 0 24px; display: flex; align-items: center; gap: 14px; }
 .team-category-label::after { content:''; flex: 1; height: 1px; background: linear-gradient(to right, rgba(26,92,58,0.2), transparent); }
 
-.team-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; }
-.team-card { flex: 0 1 300px; max-width: 320px; background: var(--white); border-radius: 22px; overflow: hidden; border: 1.5px solid rgba(35,54,93,0.08); box-shadow: var(--shadow-soft); transition: all 0.35s; }
+/* FIXED: Unified desktop template rendering for proper structure alignment */
+.team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; justify-content: center; width: 100%; }
+.team-card { width: 100%; max-width: 360px; margin: 0 auto; background: var(--white); border-radius: 22px; overflow: hidden; border: 1.5px solid rgba(35,54,93,0.08); box-shadow: var(--shadow-soft); transition: all 0.35s; display: flex; flex-direction: column; }
 .team-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lift); }
 
 /* Advisor card — special */
-.team-card.advisor .tc-top { background: linear-gradient(135deg, var(--green), #1e7a4a); }
+.team-card.advisor .tc-top { background: linear-gradient(135deg, var(--blue), #1e7a4a); }
 /* Student cards */
 .team-card.creator .tc-top { background: linear-gradient(135deg, #1a3a5c, #23365D); }
 .team-card.tech .tc-top { background: linear-gradient(135deg, var(--teal), #0f8a90); }
@@ -368,13 +409,13 @@ body { font-family: 'Raleway', sans-serif; background: var(--white); color: var(
 .tc-desig { font-size: 9.5px; color: var(--gold-light); font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; }
 .tc-id { font-size: 10.5px; color: rgba(255,255,255,0.45); margin-top: 3px; }
 
-.tc-body { padding: 26px 20px 22px; }
+.tc-body { padding: 26px 20px 22px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
 .tc-body p { font-size: 13px; line-height: 1.78; color: #556680; margin-bottom: 12px; }
 .tc-badges { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 14px; }
 .tc-badge { padding: 3px 9px; border-radius: 100px; font-size: 9px; font-weight: 700; letter-spacing: 0.5px; background: rgba(35,54,93,0.07); color: var(--blue); }
-.tc-links { display: flex; gap: 8px; flex-wrap: wrap; }
+.tc-links { display: flex; gap: 8px; flex-wrap: wrap; margin-top: auto; }
 .tc-link { display: inline-flex; align-items: center; gap: 5px; padding: 7px 13px; border-radius: 8px; font-size: 10.5px; font-weight: 700; letter-spacing: 0.5px; text-decoration: none; transition: all 0.25s; }
-.tc-link.primary { background: var(--green); color: var(--white); }
+.tc-link.primary { background: var(--blue); color: var(--white); }
 .tc-link.primary:hover { background: #0f3d25; transform: translateY(-1px); }
 .tc-link.secondary { background: rgba(35,54,93,0.07); color: var(--blue); }
 .tc-link.secondary:hover { background: var(--blue); color: var(--white); }
@@ -391,12 +432,12 @@ body { font-family: 'Raleway', sans-serif; background: var(--white); color: var(
   border: 1.5px solid rgba(26,92,58,0.15); box-shadow: var(--shadow-soft);
   position: relative; overflow: hidden;
 }
-.transition-card::before { content:''; position:absolute; top:0; left:0; right:0; height:5px; background:linear-gradient(90deg,var(--green),var(--gold),var(--teal),var(--blue)); }
+.transition-card::before { content:''; position:absolute; top:0; left:0; right:0; height:5px; background:linear-gradient(90deg,var(--blue),var(--gold),var(--teal),var(--blue)); }
 .tc-layout { display: grid; grid-template-columns: auto 1fr; gap: 40px; align-items: center; }
 .tc-icon-block { text-align: center; }
-.tc-arrow-icon { font-size: 64px; color: var(--green); opacity: 0.2; }
+.tc-arrow-icon { font-size: 64px; color: var(--blue); opacity: 0.2; }
 .from-to { display: flex; flex-direction: column; align-items: center; gap: 8px; }
-.from-badge { background: rgba(26,92,58,0.1); border: 1px solid rgba(26,92,58,0.2); border-radius: 10px; padding: 8px 16px; font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 700; color: var(--green); }
+.from-badge { background: rgba(26,92,58,0.1); border: 1px solid rgba(26,92,58,0.2); border-radius: 10px; padding: 8px 16px; font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 700; color: var(--blue); }
 .to-arrow { font-size: 20px; color: var(--gold); }
 .to-badge { background: linear-gradient(135deg, var(--blue), #2d4a7a); border-radius: 10px; padding: 8px 16px; font-family: 'Playfair Display', serif; font-size: 14px; font-weight: 700; color: var(--white); text-align: center; line-height: 1.3; }
 .tc-text h2 { font-family: 'Playfair Display', serif; font-size: clamp(20px,2.8vw,30px); font-weight: 700; color: var(--blue); margin-bottom: 14px; }
@@ -410,9 +451,9 @@ body { font-family: 'Raleway', sans-serif; background: var(--white); color: var(
 .features-inner { max-width: 1160px; margin: 0 auto; }
 .features-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(260px,1fr)); gap: 22px; margin-top: 48px; }
 .feat-card { border-radius: 18px; padding: clamp(24px,2.5vw,36px); border: 1.5px solid rgba(35,54,93,0.08); position: relative; overflow: hidden; transition: all 0.3s; background: var(--white); }
-.feat-card::before { content:''; position:absolute; top:0; left:0; right:0; height:5px; background:linear-gradient(90deg,var(--green),var(--teal)); }
+.feat-card::before { content:''; position:absolute; top:0; left:0; right:0; height:5px; background:linear-gradient(90deg,var(--blue),var(--teal)); }
 .feat-card:hover { transform: translateY(-7px); box-shadow: var(--shadow-lift); border-color: rgba(26,92,58,0.2); }
-.feat-icon { width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg,var(--green),var(--green-light)); display: flex; align-items: center; justify-content: center; margin-bottom: 18px; font-size: 22px; color: var(--gold); box-shadow: var(--shadow-green); }
+.feat-icon { width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg,var(--blue),var(--blue-light)); display: flex; align-items: center; justify-content: center; margin-bottom: 18px; font-size: 22px; color: var(--gold); box-shadow: var(--shadow-blue); }
 .feat-card h3 { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: var(--blue); margin-bottom: 10px; }
 .feat-card p { font-size: 13px; line-height: 1.8; color: #556680; }
 
@@ -423,16 +464,35 @@ body { font-family: 'Raleway', sans-serif; background: var(--white); color: var(
 .gallery-inner { max-width: 1160px; margin: 0 auto; }
 .gallery-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; margin-top: 48px; }
 .gallery-item {
-  border-radius: 16px; overflow: hidden; position: relative;
-  aspect-ratio: 4/3;
-  background: var(--white); border: 2px dashed rgba(35,54,93,0.15);
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
-  gap: 10px; color: rgba(35,54,93,0.3); transition: all 0.3s; cursor: pointer;
+  border-radius: 16px; 
+  overflow: hidden; 
+  position: relative;
+  width: 100%;
+  height: auto;
+  min-height: 220px;
+  background: var(--white); 
+  border: 2px dashed rgba(35,54,93,0.15);
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: center;
+  gap: 10px; 
+  color: rgba(35,54,93,0.3); 
+  transition: all 0.3s; 
+  cursor: pointer;
 }
-.gallery-item.wide { grid-column: span 2; aspect-ratio: 16/7; }
-.gallery-item:hover { border-color: rgba(26,92,58,0.35); background: var(--green-pale); color: rgba(26,92,58,0.5); transform: scale(1.01); }
-.gallery-item img.actual-img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:none; border-radius:14px; }
-.gallery-item img.actual-img.loaded { display:block; }
+.gallery-item.wide { 
+  grid-column: span 2; 
+}
+
+.gallery-item img.actual-img { 
+  position: relative;
+  width: 100%; 
+  height: auto; 
+  object-fit: contain; 
+  display: none; 
+  border-radius: 14px; 
+}
 .gi-icon { font-size: 36px; }
 .gi-label { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; }
 .gi-sub { font-size: 9.5px; color: rgba(35,54,93,0.2); }
@@ -446,11 +506,11 @@ body { font-family: 'Raleway', sans-serif; background: var(--white); color: var(
 .ci-card { background: var(--light); border-radius: 20px; border: 1.5px solid rgba(26,92,58,0.12); box-shadow: var(--shadow-soft); padding: clamp(24px,4vw,40px); margin-bottom: 24px; }
 .ci-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 26px 40px; }
 .ci-item { display: flex; flex-direction: row; align-items: flex-start; gap: 14px; min-width: 0; }
-.ci-icon { width: 44px; height: 44px; border-radius: 11px; flex-shrink: 0; background: var(--green); display: flex; align-items: center; justify-content: center; font-size: 16px; color: var(--gold); box-shadow: 0 5px 18px rgba(26,92,58,0.2); }
+.ci-icon { width: 44px; height: 44px; border-radius: 11px; flex-shrink: 0; background: var(--blue); display: flex; align-items: center; justify-content: center; font-size: 16px; color: var(--gold); box-shadow: 0 5px 18px rgba(26,92,58,0.2); }
 .ci-text { min-width: 0; }
-.ci-item h4 { font-size: 9.5px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: var(--green); margin-bottom: 5px; }
+.ci-item h4 { font-size: 9.5px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: var(--blue); margin-bottom: 5px; }
 .ci-item p, .ci-item a { font-size: 13px; color: #445566; text-decoration: none; line-height: 1.7; display: block; word-break: break-word; transition: color 0.2s; }
-.ci-item a:hover { color: var(--green); }
+.ci-item a:hover { color: var(--blue); }
 .map-embed { border-radius: 14px; overflow: hidden; border: 1.5px solid rgba(26,92,58,0.15); box-shadow: var(--shadow-soft); }
 .map-embed iframe { width: 100%; height: 280px; border: none; display: block; }
 
@@ -474,7 +534,7 @@ footer { background: var(--blue-dark); border-top: 2px solid rgba(212,166,74,0.2
 .abadge { background: rgba(212,166,74,0.1); border: 1px solid rgba(212,166,74,0.25); border-radius: 6px; padding: 4px 11px; font-size: 10px; font-weight: 800; color: var(--gold); letter-spacing: 1px; }
 
 /* ── BACK TO TOP ── */
-.btt { position:fixed;bottom:24px;right:24px;z-index:900;width:42px;height:42px;border-radius:11px;background:var(--green);color:var(--gold);font-size:17px;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:all 0.3s;box-shadow:0 5px 18px rgba(26,92,58,0.3); }
+.btt { position:fixed;bottom:24px;right:24px;z-index:900;width:42px;height:42px;border-radius:11px;background:var(--blue);color:var(--gold);font-size:17px;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:all 0.3s;box-shadow:0 5px 18px rgba(26,92,58,0.3); }
 .btt.visible { opacity:1;visibility:visible; }
 .btt:hover { background:var(--gold-dim);color:var(--white);transform:translateY(-3px); }
 
@@ -487,6 +547,7 @@ footer { background: var(--blue-dark); border-top: 2px solid rgba(212,166,74,0.2
 }
 @media (max-width:768px) {
   .footer-top { grid-template-columns:1fr; gap:28px; }
+  .team-grid { grid-template-columns: 1fr; }
   .gallery-grid { grid-template-columns:1fr; }
   .gallery-item.wide { grid-column:span 1; }
   .launcher-card { grid-template-columns:1fr; }
@@ -573,19 +634,10 @@ footer { background: var(--blue-dark); border-top: 2px solid rgba(212,166,74,0.2
 
     <!-- ZEN·DNA wordmark -->
     <div class="zen-wordmark">
-      <span class="zen-part">ZEN</span>
-      <span class="dot-part">-</span>
-      <span class="dna-part">DNA</span>
+      <span class="zen-part">ZEN-DNA</span>
     </div>
     <div class="zen-tagline">Zoology E-Learning Network , Departmental Nurturing Academics</div>
-    <div class="zen-full-name">Now: Official Departmental Website</div>
-
-    <div class="launch-pill">
-      <span class="lpill-dot"></span>
-      <span>Launched · 12.12.2025 · JF02 Zoology Smart Room</span>
-      <span class="lpill-dot"></span>
-    </div>
-
+     
     <!-- Launch strip stats -->
     <div class="launch-strip">
       <div class="ls-item">
@@ -597,7 +649,7 @@ footer { background: var(--blue-dark); border-top: 2px solid rgba(212,166,74,0.2
         <div class="ls-lbl"><i class="fas fa-door-open" style="margin-right:3px;"></i>Zoology Smart Room</div>
       </div>
       <div class="ls-item">
-        <div class="ls-val">ZEN · DNA</div>
+        <div class="ls-val">ZEN - DNA</div>
         <div class="ls-lbl"><i class="fas fa-dna" style="margin-right:3px;"></i>Original Platform Name</div>
       </div>
       <div class="ls-item">
@@ -615,38 +667,24 @@ footer { background: var(--blue-dark); border-top: 2px solid rgba(212,166,74,0.2
   <div class="about-inner">
     <div class="center reveal">
       <div class="section-eyebrow"><i class="fas fa-info-circle"></i> About This Platform</div>
-      <h2 class="section-title">What is <em>ZEN · DNA</em>?</h2>
-      <p class="section-desc" style="color:#556680;max-width:700px;margin:0 auto;">Born from student initiative and departmental vision, ZEN · DNA was designed as a one-stop digital home for the life science community at Loyola — and has since grown into the department's official online presence.</p>
+      <h2 class="section-title">What is <em>ZEN - DNA</em>?</h2>
+      <p class="section-desc" style="color:#556680;max-width:700px;margin:0 auto;">Born from student initiative and departmental vision, ZEN - DNA was designed as a one-stop digital home for the life science community at Loyola — and has since grown into the department's official online presence.</p>
     </div>
     <div class="about-grid">
       <div class="about-text reveal-left">
         <div class="section-eyebrow" style="margin-bottom:12px;"><i class="fas fa-history"></i> The Story</div>
         <h3 class="section-title" style="font-size:clamp(22px,3vw,34px);">From <em>E-Learning Platform</em> to Departmental Home</h3>
-        <p class="section-desc" style="color:#556680;margin-bottom:16px;">ZEN · DNA — Zoology E-Learning Network: Departmental Nurturing Academics — was conceived as a digital learning ecosystem for students of the PG &amp; Research Department of Advanced Zoology and Biotechnology at Loyola College, Chennai.</p>
+        <p class="section-desc" style="color:#556680;margin-bottom:16px;">ZEN - DNA — Zoology E-Learning Network: Departmental Nurturing Academics — was conceived as a digital learning ecosystem for students of the PG &amp; Research Department of Advanced Zoology and Biotechnology at Loyola College, Chennai.</p>
         <p class="section-desc" style="color:#556680;margin-bottom:16px;">The platform was envisioned to bridge classroom learning with digital resources — offering study materials, research insights, departmental news, faculty profiles and academic guidance in one cohesive online environment rooted in the Jesuit tradition of holistic education.</p>
-        <p class="section-desc" style="color:#556680;">What began as an innovative student-led e-learning initiative has now been elevated and integrated as the <strong style="color:var(--green);">Official Website of the Department</strong> — a testament to the quality and vision of its creators.</p>
+        <p class="section-desc" style="color:#556680;">What began as an innovative student-led e-learning initiative has now been elevated and integrated as the <strong style="color:var(--blue);">Official Website of the Department</strong> — a testament to the quality and vision of its creators.</p>
 
-        <div class="origin-box">
-          <div class="ob-label"><i class="fas fa-quote-left" style="margin-right:5px;"></i>Public Note</div>
-          <p>Originally launched as <strong>ZEN · DNA</strong>, this platform is now integrated as the <strong>Website for the Department of Advanced Zoology &amp; Biotechnology</strong>, Loyola College (Autonomous), Chennai — continuing its mission of academic excellence in the digital space.</p>
-        </div>
       </div>
       <div class="about-img-block reveal-right">
         <!-- Primary image placeholder — replace src with actual launch photo -->
         <div class="about-img-frame">
-          <img class="actual-img" src="YOUR_LAUNCH_CEREMONY_PHOTO.jpg" alt="ZEN-DNA Launch Ceremony" onerror="this.style.display='none'">
-          <div class="img-placeholder-icon"><i class="fas fa-camera"></i></div>
-          <div class="img-placeholder-text">Launch Ceremony Photo</div>
-          <div class="img-placeholder-sub">Replace src with: YOUR_LAUNCH_PHOTO.jpg</div>
+          <img class="actual-img" src="https://lh3.googleusercontent.com/d/14N6LOBCvxlfuLDlF1mumlzGJAQrKAW3B" alt="ZEN-DNA Launch Ceremony" onerror="this.style.display='none'">
         </div>
-        <div class="about-img-caption">ZEN · DNA Launch Event — 12 December 2025 · JF02, Zoology Smart Room</div>
-
-        <!-- Secondary image placeholder -->
-        <div class="about-img-small">
-          <img class="actual-img" src="YOUR_DEPT_PHOTO.jpg" alt="Department Photo" onerror="this.style.display='none'">
-          <i class="fas fa-university" style="font-size:30px;"></i>
-          <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;">Department / Venue Photo</div>
-        </div>
+        <div class="about-img-caption">ZEN - DNA Launch Event — 12 December 2025 · JF02, Zoology Smart Room</div>
       </div>
     </div>
   </div>
@@ -659,7 +697,7 @@ footer { background: var(--blue-dark); border-top: 2px solid rgba(212,166,74,0.2
   <div class="pillars-inner">
     <div class="center reveal">
       <div class="section-eyebrow"><i class="fas fa-layer-group"></i> Our Purpose</div>
-      <h2 class="section-title">The Four <em>Pillars</em> of ZEN · DNA</h2>
+      <h2 class="section-title">The Four <em>Pillars</em> of ZEN - DNA</h2>
       <p class="section-desc" style="color:#556680;max-width:640px;margin:0 auto;">Every feature and page of this platform is built around four core commitments that define our department's digital identity.</p>
     </div>
     <div class="pillars-grid">
@@ -696,7 +734,7 @@ footer { background: var(--blue-dark); border-top: 2px solid rgba(212,166,74,0.2
     <div class="center reveal">
       <div class="section-eyebrow" style="color:var(--gold);justify-content:center;"><i class="fas fa-calendar-star"></i> The Launch Event</div>
       <h2 class="section-title">A Historic <em>Milestone</em></h2>
-      <p class="section-desc" style="color:rgba(255,255,255,0.65);max-width:660px;margin:0 auto;">On 12 December 2025, ZEN · DNA was formally inaugurated in the Zoology Smart Room (JF02) — a proud day for the department, the students who built it, and the Loyola community.</p>
+      <p class="section-desc" style="color:rgba(255,255,255,0.65);max-width:660px;margin:0 auto;">On 12 December 2025, ZEN - DNA was formally inaugurated in the Zoology Smart Room (JF02) — a proud day for the department, the students who built it, and the Loyola community.</p>
     </div>
 
     <div class="event-details-grid">
@@ -713,7 +751,7 @@ footer { background: var(--blue-dark); border-top: 2px solid rgba(212,166,74,0.2
         <div class="evd-sub">Zoology Smart Room, Loyola College</div>
       </div>
       <div class="evd-card reveal">
-        <div class="evd-icon"><i class="fas fa-cross"></i></div>
+        <div class="evd-icon"><i class="fas fa-university"></i></div>
         <div class="evd-label">Launched By</div>
         <div class="evd-val">Rev. Dr. D. Thomas Alexander, SJ</div>
         <div class="evd-sub">Secretary &amp; Correspondent, Loyola College</div>
@@ -740,10 +778,7 @@ footer { background: var(--blue-dark); border-top: 2px solid rgba(212,166,74,0.2
 
     <!-- Launch event main image placeholder -->
     <div class="launch-img-wrap reveal">
-      <img class="actual-img" src="YOUR_LAUNCH_EVENT_WIDE_PHOTO.jpg" alt="Launch Event Wide Photo" onerror="this.style.display='none'">
-      <div class="lip-icon"><i class="fas fa-images"></i></div>
-      <div class="lip-text">Launch Event · Official Photograph</div>
-      <div class="lip-sub">Replace src with: YOUR_LAUNCH_EVENT_WIDE_PHOTO.jpg<br>Best size: 1400×560 px or wider landscape photo</div>
+      <img class="actual-img" src="https://lh3.googleusercontent.com/d/1EJac-av2OUkdaiKCncJqh-k9B8rmg6_m" alt="Launch Event Wide Photo" onerror="this.style.display='none'">
     </div>
   </div>
 </section>
@@ -754,7 +789,7 @@ footer { background: var(--blue-dark); border-top: 2px solid rgba(212,166,74,0.2
 <section class="team-section" id="team">
   <div class="team-inner">
     <div class="center reveal">
-      <div class="section-eyebrow"><i class="fas fa-users"></i> The People Behind ZEN · DNA</div>
+      <div class="section-eyebrow"><i class="fas fa-users"></i> The People Behind ZEN - DNA</div>
       <h2 class="section-title">Our <em>Team</em></h2>
       <p class="section-desc" style="color:#556680;max-width:660px;margin:0 auto;">This platform was built through faith, vision, and student initiative — guided by distinguished faculty and brought to life by passionate young scientists.</p>
     </div>
@@ -766,27 +801,27 @@ footer { background: var(--blue-dark); border-top: 2px solid rgba(212,166,74,0.2
         <!-- Replace with actual photo -->
         <div class="lnc-crown"><i class="fas fa-star" style="margin-right:4px;font-size:8px;"></i>Inaugurated By</div>
         <div class="lnc-avatar">
-          <img src="YOUR_THOMAS_ALEXANDER_PHOTO.jpg" alt="Rev. Dr. D. Thomas Alexander SJ" onerror="this.style.display='none';this.parentNode.innerHTML='<span class=\'lnc-initials\'>TA</span>'">
+          <img src="https://lh3.googleusercontent.com/d/12--dnP2bkubF5IfuHnALMJrIsvme9klM" alt="Rev. Dr. D. Thomas Alexander SJ" onerror="this.style.display='none';this.parentNode.innerHTML='<span class=\'lnc-initials\'>TA</span>'">
         </div>
         <div class="lnc-name">Rev. Dr. D. Thomas Alexander, SJ</div>
-        <div class="lnc-role"><i class="fas fa-cross" style="margin-right:4px;"></i>Secretary &amp; Correspondent</div>
+        <div class="lnc-role">Secretary &amp; Correspondent</div>
         <div class="lnc-org">Loyola College (Autonomous), Chennai – 34</div>
       </div>
       <div class="lnc-content">
         <div class="role-tag"><i class="fas fa-ribbon" style="margin-right:6px;color:var(--gold-dim);"></i>Formal Launch &amp; Inauguration</div>
         <h2>The Visionary Who <em>Lit the Lamp</em></h2>
-        <p>Rev. Dr. D. Thomas Alexander SJ, the Secretary and Correspondent of Loyola College (Autonomous), Chennai, formally inaugurated ZEN · DNA on 12 December 2025 in the Zoology Smart Room (JF02). A distinguished Jesuit administrator and educator, his blessing and support elevated this student initiative into an officially recognised departmental platform, embodying the Jesuit spirit of encouraging bold, purposeful innovation.</p>
+        <p>Rev. Dr. D. Thomas Alexander SJ, the Secretary and Correspondent of Loyola College (Autonomous), Chennai, formally inaugurated ZEN - DNA on 12 December 2025 in the Zoology Smart Room (JF02). A distinguished Jesuit administrator and educator, his blessing and support elevated this student initiative into an officially recognised departmental platform, embodying the Jesuit spirit of encouraging bold, purposeful innovation.</p>
       </div>
     </div>
 
     <!-- ── ACADEMIC GUIDANCE ── -->
-    <div class="team-category-label reveal"><i class="fas fa-chalkboard-teacher" style="color:var(--green);"></i> Academic Guidance</div>
-    <div class="team-grid" style="justify-content:center;">
-      <div class="team-card advisor reveal" style="max-width:420px;flex:0 1 420px;">
+    <div class="team-category-label reveal"><i class="fas fa-chalkboard-teacher" style="color:var(--blue);"></i> Academic Guidance</div>
+    <div class="team-grid" style="grid-template-columns: 1fr;">
+      <div class="team-card advisor reveal" style="max-width:420px;flex:0 1 420px; margin: 0 auto;">
         <div class="tc-top">
           <div class="tc-role-badge">Academic Guide</div>
           <div class="tc-avatar">
-            <img src="YOUR_PUSHPA_RANI_PHOTO.jpg" alt="Dr. V. Pushpa Rani" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <img src="https://lh3.googleusercontent.com/d/1_DZ9RULfQgKZV8vQOMcIPWnskFEO8G1F" alt="Dr. V. Pushpa Rani" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
             <div class="av-placeholder" style="display:none;"><i class="fas fa-user-circle"></i><span>Photo Here</span></div>
           </div>
           <div class="tc-name">Dr. V. Pushpa Rani</div>
@@ -794,15 +829,10 @@ footer { background: var(--blue-dark); border-top: 2px solid rgba(212,166,74,0.2
           <div class="tc-id">Dept. of Advanced Zoology &amp; Biotechnology · Loyola College</div>
         </div>
         <div class="tc-body">
-          <p>Dr. V. Pushpa Rani, Head of the Department of Advanced Zoology and Biotechnology, provided the academic vision, mentorship and institutional support that made ZEN · DNA possible. Her guidance shaped the platform's content, purpose and academic integrity — ensuring it truly serves as a resource worthy of the department's century-old legacy.</p>
-          <div class="tc-badges">
-            <span class="tc-badge">Head of Department</span>
-            <span class="tc-badge">Academic Mentor</span>
-            <span class="tc-badge">Zoology &amp; Biotech</span>
-          </div>
+          <p>Dr. V. Pushpa Rani, Head of the Department of Advanced Zoology and Biotechnology, provided the academic vision, mentorship and institutional support that made ZEN - DNA possible. Her guidance shaped the platform's content, purpose and academic integrity — ensuring it truly serves as a resource worthy of the department's century-old legacy.</p>
           <div class="tc-links">
-            <a href="#contact" class="tc-link primary"><i class="fas fa-envelope" style="margin-right:5px;"></i>Contact</a>
-            <a href="#" class="tc-link gold"><i class="fas fa-graduation-cap" style="margin-right:5px;"></i>Faculty Profile</a>
+            <a href="mailto:pushparani@loyolcollege.edu" class="tc-link primary"><i class="fas fa-envelope" style="margin-right:5px;"></i>Contact</a>
+            <a href="https://loyolacollege.irins.org/profile/273332" class="tc-link gold"><i class="fas fa-graduation-cap" style="margin-right:5px;"></i>Faculty Profile</a>
           </div>
         </div>
       </div>
@@ -817,25 +847,21 @@ footer { background: var(--blue-dark); border-top: 2px solid rgba(212,166,74,0.2
         <div class="tc-top">
           <div class="tc-role-badge">Creator &amp; Architect</div>
           <div class="tc-avatar">
-            <img src="YOUR_MOUNISH_PHOTO.jpg" alt="Mounish D" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <img src="https://lh3.googleusercontent.com/d/1n43Ne3m3JGDymDtjAr8UYSlCNvANstTv" alt="Mounish D" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
             <div class="av-placeholder" style="display:none;"><i class="fas fa-user-circle"></i><span>Photo Here</span></div>
           </div>
           <div class="tc-name">Mr. Mounish D</div>
-          <div class="tc-desig">Creator &amp; Architect · ZEN · DNA</div>
-          <div class="tc-id">25-UAZ-016 · B.Sc. Advanced Zoology &amp; Biotechnology</div>
+          <div class="tc-desig">Creator &amp; Architect · ZEN - DNA</div>
+          <div class="tc-id">25-UAZ-016 <br> B.Sc. Advanced Zoology &amp; Biotechnology</div>
         </div>
         <div class="tc-body">
-          <p>The visionary mind behind ZEN · DNA, Mounish conceptualised, designed and architected the entire platform — from its information structure to its visual identity and content framework. A student of the 2025 batch, he demonstrated extraordinary initiative by transforming a departmental need into a living digital product, now officially recognised as the department's website.</p>
+          <p>The visionary mind behind ZEN - DNA, Mounish conceptualised, designed and architected the entire platform — from its information structure to its visual identity and content framework. A student of the 2025 batch, he demonstrated extraordinary initiative by transforming a departmental need into a living digital product, now officially recognised as the department's website.</p>
           <div class="tc-badges">
-            <span class="tc-badge">Platform Creator</span>
-            <span class="tc-badge">Web Architect</span>
             <span class="tc-badge">2025 Batch</span>
-            <span class="tc-badge">25-UAZ-016</span>
           </div>
           <div class="tc-links">
-            <a href="YOUR_MOUNISH_RESUME.pdf" class="tc-link primary" target="_blank"><i class="fas fa-file-alt" style="margin-right:5px;"></i>Resume / CV</a>
-            <a href="mailto:mounish@example.com" class="tc-link secondary"><i class="fas fa-envelope" style="margin-right:5px;"></i>Email</a>
-            <a href="#" class="tc-link gold"><i class="fab fa-linkedin" style="margin-right:5px;"></i>LinkedIn</a>
+            <a href="mailto:25uaz016@loyolacolleg.edu" class="tc-link secondary"><i class="fas fa-envelope" style="margin-right:5px;"></i>Email</a>
+            <a href="https://www.linkedin.com/in/mounishd2127" class="tc-link gold"><i class="fab fa-linkedin" style="margin-right:5px;"></i>LinkedIn</a>
           </div>
         </div>
       </div>
@@ -845,25 +871,20 @@ footer { background: var(--blue-dark); border-top: 2px solid rgba(212,166,74,0.2
         <div class="tc-top">
           <div class="tc-role-badge">Technical Lead</div>
           <div class="tc-avatar">
-            <img src="YOUR_JACKWIN_PHOTO.jpg" alt="Jackwin S" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <img src="https://lh3.googleusercontent.com/d/1kAlcEXZB8HAQgXVUbaeMwNGbBV6aXpDZ" alt="Jackwin S" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
             <div class="av-placeholder" style="display:none;"><i class="fas fa-user-circle"></i><span>Photo Here</span></div>
           </div>
           <div class="tc-name">Mr. Jackwin S</div>
-          <div class="tc-desig">Technical Lead · ZEN · DNA</div>
-          <div class="tc-id">25-UAZ-014 · B.Sc. Advanced Zoology &amp; Biotechnology</div>
+          <div class="tc-desig">Technical Lead · ZEN - DNA</div>
+          <div class="tc-id">25-UAZ-014 <br> B.Sc. Advanced Zoology &amp; Biotechnology</div>
         </div>
         <div class="tc-body">
-          <p>Jackwin served as the technical backbone of the ZEN · DNA platform — handling the development, deployment and technical infrastructure that brought Mounish's vision to life. His expertise in web technologies ensured the platform is robust, responsive and accessible across devices, making it a truly modern departmental website.</p>
+          <p>Jackwin served as the technical backbone of the ZEN - DNA platform — handling the development, deployment and technical infrastructure that brought Mounish's vision to life. His expertise in web technologies ensured the platform is robust, responsive and accessible across devices, making it a truly modern departmental website.</p>
           <div class="tc-badges">
-            <span class="tc-badge">Technical Lead</span>
-            <span class="tc-badge">Web Development</span>
             <span class="tc-badge">2025 Batch</span>
-            <span class="tc-badge">25-UAZ-014</span>
-          </div>
+          </div> <!-- FIXED: Added missing closing div tag here to prevent swallowing next structural block -->
           <div class="tc-links">
-            <a href="YOUR_JACKWIN_RESUME.pdf" class="tc-link primary" target="_blank"><i class="fas fa-file-alt" style="margin-right:5px;"></i>Resume / CV</a>
-            <a href="mailto:jackwin@example.com" class="tc-link secondary"><i class="fas fa-envelope" style="margin-right:5px;"></i>Email</a>
-            <a href="#" class="tc-link gold"><i class="fab fa-linkedin" style="margin-right:5px;"></i>LinkedIn</a>
+            <a href="mailto:25uaz014@loyolacollege.edu" class="tc-link secondary"><i class="fas fa-envelope" style="margin-right:5px;"></i>Email</a>
           </div>
         </div>
       </div>
@@ -873,25 +894,20 @@ footer { background: var(--blue-dark); border-top: 2px solid rgba(212,166,74,0.2
         <div class="tc-top">
           <div class="tc-role-badge">Review &amp; QC</div>
           <div class="tc-avatar">
-            <img src="YOUR_BHAWANTHI_PHOTO.jpg" alt="Bhawanthi Shrinithi R" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <img src="https://lh3.googleusercontent.com/d/1aTktyecg7LgRU9qaCpiKE8zrKbFZpa38" alt="Bhawanthi Shrinithi R" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
             <div class="av-placeholder" style="display:none;"><i class="fas fa-user-circle"></i><span>Photo Here</span></div>
           </div>
           <div class="tc-name">Ms. Bhawanthi Shrinithi R</div>
           <div class="tc-desig">Review &amp; Quality Check</div>
-          <div class="tc-id">25-UAZ-027 · B.Sc. Advanced Zoology &amp; Biotechnology</div>
+          <div class="tc-id">25-UAZ-027 <br> B.Sc. Advanced Zoology &amp; Biotechnology</div>
         </div>
         <div class="tc-body">
-          <p>Bhawanthi Shrinithi led the review and quality check process for ZEN · DNA — meticulously evaluating content accuracy, academic integrity, design consistency and user experience. Her careful attention to detail ensured the platform meets the high standards expected of Loyola College and the Department of Advanced Zoology &amp; Biotechnology.</p>
+          <p>Bhawanthi Shrinithi led the review and quality check process for ZEN - DNA — meticulously evaluating content accuracy, academic integrity, design consistency and user experience. Her careful attention to detail ensured the platform meets the high standards expected of Loyola College and the Department of Advanced Zoology &amp; Biotechnology.</p>
           <div class="tc-badges">
-            <span class="tc-badge">Quality Review</span>
-            <span class="tc-badge">Content Check</span>
             <span class="tc-badge">2025 Batch</span>
-            <span class="tc-badge">25-UAZ-027</span>
           </div>
           <div class="tc-links">
-            <a href="YOUR_BHAWANTHI_RESUME.pdf" class="tc-link primary" target="_blank"><i class="fas fa-file-alt" style="margin-right:5px;"></i>Resume / CV</a>
-            <a href="mailto:bhawanthi@example.com" class="tc-link secondary"><i class="fas fa-envelope" style="margin-right:5px;"></i>Email</a>
-            <a href="#" class="tc-link gold"><i class="fab fa-linkedin" style="margin-right:5px;"></i>LinkedIn</a>
+            <a href="mailto:25uaz027@loyolacollege.edu" class="tc-link secondary"><i class="fas fa-envelope" style="margin-right:5px;"></i>Email</a>
           </div>
         </div>
       </div>
@@ -913,20 +929,16 @@ footer { background: var(--blue-dark); border-top: 2px solid rgba(212,166,74,0.2
       <div class="tc-layout">
         <div class="tc-icon-block">
           <div class="from-to">
-            <div class="from-badge"><i class="fas fa-dna" style="margin-right:7px;"></i>ZEN · DNA</div>
+            <div class="from-badge"><i class="fas fa-dna" style="margin-right:7px;"></i>ZEN - DNA</div>
             <div class="to-arrow"><i class="fas fa-arrow-down"></i></div>
             <div class="to-badge"><i class="fas fa-globe" style="margin-right:6px;"></i>Official<br>Dept. Website</div>
           </div>
         </div>
         <div class="tc-text">
           <h2>A Student Dream, Now <em>Officially Recognised</em></h2>
-          <p>What began as ZEN · DNA — Zoology E-Learning Network: Departmental Nurturing Academics — a student-led digital initiative to serve the academic community of the PG &amp; Research Department of Advanced Zoology and Biotechnology, has evolved into something far greater.</p>
-          <p>Following its successful launch on 12 December 2025, inaugurated by Rev. Dr. D. Thomas Alexander SJ himself, the platform demonstrated such quality, vision and utility that it has now been formally integrated as the <strong style="color:var(--green);">Official Website of the Department</strong>.</p>
+          <p>What began as ZEN - DNA — Zoology E-Learning Network: Departmental Nurturing Academics — a student-led digital initiative to serve the academic community of the PG &amp; Research Department of Advanced Zoology and Biotechnology, has evolved into something far greater.</p>
+          <p>Following its successful launch on 12 December 2025, inaugurated by Rev. Dr. D. Thomas Alexander SJ himself, the platform demonstrated such quality, vision and utility that it has now been formally integrated as the <strong style="color:var(--blue);">Official Website of the Department</strong>.</p>
           <p>This transition is a remarkable achievement — a testament to the creators' dedication, the guidance of Dr. V. Pushpa Rani, and the Loyola College tradition of empowering students to lead with courage, creativity and competence.</p>
-          <div class="note-tag">
-            <i class="fas fa-info-circle"></i>
-            <span>Originally launched as ZEN · DNA · Now: Official Departmental Website</span>
-          </div>
         </div>
       </div>
     </div>
@@ -986,7 +998,7 @@ footer { background: var(--blue-dark); border-top: 2px solid rgba(212,166,74,0.2
     <div class="center reveal">
       <div class="section-eyebrow"><i class="fas fa-images"></i> Photo Gallery</div>
       <h2 class="section-title">Launch <em>Moments</em></h2>
-      <p class="section-desc" style="color:#556680;max-width:580px;margin:0 auto;">Memories from the ZEN · DNA launch event — a historic moment for the department and its student community.</p>
+      <p class="section-desc" style="color:#556680;max-width:580px;margin:0 auto;">Memories from the ZEN - DNA launch event — a historic moment for the department and its student community.</p>
     </div>
     <div class="gallery-grid" style="margin-top:48px;">
 
@@ -1064,7 +1076,7 @@ footer { background: var(--blue-dark); border-top: 2px solid rgba(212,166,74,0.2
       </div>
 
     </div>
-    <p class="gallery-caption" style="text-align:center;margin-top:18px;">ZEN · DNA Launch Event — 12 December 2025 · JF02, Zoology Smart Room, Loyola College, Chennai</p>
+    <p class="gallery-caption" style="text-align:center;margin-top:18px;">ZEN - DNA Launch Event — 12 December 2025 · JF02, Zoology Smart Room, Loyola College, Chennai</p>
   </div>
 </section>
 
@@ -1076,7 +1088,7 @@ footer { background: var(--blue-dark); border-top: 2px solid rgba(212,166,74,0.2
     <div class="center reveal">
       <div class="section-eyebrow"><i class="fas fa-envelope"></i> Get In Touch</div>
       <h2 class="section-title">Contact the <em>Department</em></h2>
-      <p class="section-desc" style="color:#556680;max-width:580px;margin:0 auto;margin-top:10px;">Reach out to the Department of Advanced Zoology &amp; Biotechnology or the ZEN · DNA team for enquiries, admissions or collaborations.</p>
+      <p class="section-desc" style="color:#556680;max-width:580px;margin:0 auto;margin-top:10px;">Reach out to the Department of Advanced Zoology &amp; Biotechnology or the ZEN - DNA team for enquiries, admissions or collaborations.</p>
     </div>
     <div style="margin-top:48px;">
       <div class="ci-card reveal">
@@ -1128,14 +1140,14 @@ footer { background: var(--blue-dark); border-top: 2px solid rgba(212,166,74,0.2
   <div class="footer-inner">
     <div class="footer-top">
       <div class="fb">
-        <h2>ZEN · DNA &nbsp;|&nbsp; Dept. of Advanced Zoology &amp; Biotechnology</h2>
+        <h2>ZEN - DNA &nbsp;|&nbsp; Dept. of Advanced Zoology &amp; Biotechnology</h2>
         <p class="sub"><i class="fas fa-dna" style="margin-right:4px;font-size:9px;"></i>Loyola College (Autonomous) · Est. 1948 · Chennai · Launched 12.12.2025</p>
-        <p>Originally launched as ZEN · DNA (Zoology E-Learning Network: Departmental Nurturing Academics), this platform is now integrated as the official website of the PG &amp; Research Department of Advanced Zoology and Biotechnology, Loyola College (Autonomous), Chennai. Created by students. Guided by excellence. Built with purpose.</p>
+        <p>Originally launched as ZEN - DNA (Zoology E-Learning Network: Departmental Nurturing Academics), this platform is now integrated as the official website of the PG &amp; Research Department of Advanced Zoology and Biotechnology, Loyola College (Autonomous), Chennai. Created by students. Guided by excellence. Built with purpose.</p>
       </div>
       <div class="fc">
         <h4><i class="fas fa-link" style="margin-right:4px;"></i>About</h4>
         <ul>
-          <li><a href="#about">About ZEN · DNA</a></li>
+          <li><a href="#about">About ZEN - DNA</a></li>
           <li><a href="#launch">Launch Event</a></li>
           <li><a href="#team">Our Team</a></li>
           <li><a href="#transition">Platform Evolution</a></li>
@@ -1156,7 +1168,7 @@ footer { background: var(--blue-dark); border-top: 2px solid rgba(212,166,74,0.2
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2025 ZEN · DNA | Dept. of Advanced Zoology &amp; Biotechnology, Loyola College (Autonomous), Chennai. Created by Mr. Mounish D (25-UAZ-016) &amp; Mr. Jackwin S (25-UAZ-014). Reviewed by Ms. Bhawanthi Shrinithi R (25-UAZ-027). Guided by Dr. V. Pushpa Rani. Launched by Rev. Dr. D. Thomas Alexander SJ.</p>
+      <p>© 2025 ZEN - DNA | Dept. of Advanced Zoology &amp; Biotechnology, Loyola College (Autonomous), Chennai. Created by Mr. Mounish D (25-UAZ-016) &amp; Mr. Jackwin S (25-UAZ-014). Reviewed by Ms. Bhawanthi Shrinithi R (25-UAZ-027). Guided by Dr. V. Pushpa Rani. Launched by Rev. Dr. D. Thomas Alexander SJ.</p>
       <div class="accr-badges">
         <span class="abadge">NAAC A+++</span>
         <span class="abadge">DBT Star</span>
