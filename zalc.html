@@ -31,10 +31,25 @@ a{text-decoration:none;color:inherit}
 .section-title.white{color:var(--white)}.section-title.white em{color:var(--glacier)}
 .section-sub{font-family:'Playfair Display',serif;font-size:clamp(15px,1.7vw,18px);font-style:italic;color:var(--slate);line-height:1.75;margin-top:10px}
 .section-sub.white{color:rgba(255,255,255,0.55)}
-.center{text-align:center}.center .section-eyebrow{justify-content:center}
+.center{text-align:center}
+.center .section-eyebrow{justify-content:center}
 
-/* ─── HERO ─── */
-.hero{min-height:100vh;background:linear-gradient(160deg,var(--midnight) 0%,var(--abyss) 45%,#0E4052 70%,#0F5060 100%);position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:80px clamp(20px,5vw,64px) 60px}
+/* ── REVEAL SYSTEM FROM REFERENCE ── */
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+.reveal-left { opacity: 0; transform: translateX(-36px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal-left.visible { opacity: 1; transform: none; }
+.reveal-right { opacity: 0; transform: translateX(36px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal-right.visible { opacity: 1; transform: none; }
+
+/* ─── HERO FIX FROM REFERENCE ─── */
+.hero{
+  background:linear-gradient(160deg,var(--midnight) 0%,var(--abyss) 45%,#0E4052 70%,#0F5060 100%);
+  position:relative;overflow:hidden;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:clamp(40px,7vw,90px) clamp(20px,5vw,64px) clamp(36px,6vw,72px);
+  text-align:center;
+}
 .hero-grid{position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(91,191,191,0.06)1px,transparent 1px),linear-gradient(90deg,rgba(91,191,191,0.06)1px,transparent 1px);background-size:72px 72px;mask-image:radial-gradient(ellipse 85% 85% at 50% 50%,black 30%,transparent 100%)}
 .orb{position:absolute;border-radius:50%;pointer-events:none;filter:blur(90px);mix-blend-mode:screen}
 .orb1{width:700px;height:700px;background:rgba(43,143,163,0.13);top:-200px;left:-150px;animation:o1 20s ease-in-out infinite}
@@ -75,7 +90,7 @@ a{text-decoration:none;color:inherit}
 .motto-label{font-size:8px;font-weight:600;letter-spacing:3.5px;text-transform:uppercase;color:rgba(91,191,191,0.45)}
 
 /* ─── ABOUT ─── */
-.about-section{padding:clamp(72px,9vw,120px) 0;background:var(--white);position:relative;overflow:hidden}
+.about-section{padding:clamp(52px,7vw,96px) 0;background:var(--white);position:relative;overflow:hidden}
 .about-section::after{content:'ZALC';position:absolute;right:-30px;top:50%;transform:translateY(-50%);font-family:'Cinzel',serif;font-size:clamp(110px,18vw,200px);font-weight:900;color:rgba(43,143,163,0.04);pointer-events:none;user-select:none;white-space:nowrap;line-height:1}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(48px,7vw,96px);align-items:center;margin-top:60px}
 @media(max-width:900px){.about-grid{grid-template-columns:1fr}}
@@ -94,8 +109,8 @@ a{text-decoration:none;color:inherit}
 .pillar-content h4{font-size:13.5px;font-weight:600;color:var(--abyss);margin-bottom:5px}
 .pillar-content p{font-size:12.5px;line-height:1.72;color:var(--slate)}
 
-/* ─── LEADERSHIP — clean circle photos ─── */
-.leadership-section{padding:clamp(72px,9vw,120px) 0;background:var(--mist)}
+/* ─── LEADERSHIP ─── */
+.leadership-section{padding:clamp(52px,7vw,96px) 0;background:var(--mist)}
 .leadership-header{text-align:center;margin-bottom:64px}
 .leaders-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:26px}
 
@@ -107,7 +122,6 @@ a{text-decoration:none;color:inherit}
 @keyframes shimmer{0%,100%{opacity:0}50%{opacity:1}}
 .leader-card.hod .lc-stripe{background:linear-gradient(90deg,var(--deep),var(--gold),var(--deep))}
 
-/* Clean photo zone — no gradients, no fades, pure circle */
 .lc-photo-zone{padding:28px 0 16px;background:var(--mist);display:flex;flex-direction:column;align-items:center;gap:12px}
 .lc-avatar{width:112px;height:112px;border-radius:50%;overflow:hidden;flex-shrink:0;border:3px solid rgba(43,143,163,0.28);background:var(--fog);display:flex;align-items:center;justify-content:center}
 .leader-card.hod .lc-avatar{border-color:var(--gold);box-shadow:0 0 0 5px rgba(201,168,76,0.12)}
@@ -121,8 +135,8 @@ a{text-decoration:none;color:inherit}
 .lc-class{font-size:11px;font-weight:500;color:var(--teal);margin-bottom:8px;letter-spacing:.5px}
 .lc-dept{display:inline-block;padding:3px 10px;border-radius:100px;font-size:9px;font-weight:600;background:var(--mist);color:var(--deep);border:1px solid rgba(43,143,163,0.18)}
 
-/* ─── MEMBERS — clean circle photos ─── */
-.members-section{padding:clamp(72px,9vw,120px) 0;background:var(--midnight);position:relative;overflow:hidden}
+/* ─── MEMBERS ─── */
+.members-section{padding:clamp(52px,7vw,96px) 0;background:var(--midnight);position:relative;overflow:hidden}
 .members-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 0% 50%,rgba(43,143,163,0.08)0%,transparent 55%),radial-gradient(ellipse 55% 70% at 100% 50%,rgba(26,94,114,0.08)0%,transparent 55%);pointer-events:none}
 .members-header{text-align:center;margin-bottom:56px;position:relative}
 .members-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:14px;position:relative}
@@ -132,7 +146,6 @@ a{text-decoration:none;color:inherit}
 .member-card:hover{border-color:rgba(91,191,191,0.28);box-shadow:0 10px 36px rgba(0,0,0,0.35);transform:translateY(-6px)}
 .member-card:hover::before{opacity:1}
 
-/* Clean member photo — pure circle */
 .mc-photo-zone{padding:16px 0 10px;background:rgba(91,191,191,0.04);display:flex;justify-content:center}
 .mc-avatar{width:80px;height:80px;border-radius:50%;overflow:hidden;border:2.5px solid rgba(91,191,191,0.28);background:rgba(91,191,191,0.07);display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .mc-avatar img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;border-radius:50%}
@@ -167,7 +180,7 @@ a{text-decoration:none;color:inherit}
 .assoc-stat .l{font-size:9px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.38)}
 
 /* ─── LEGACY ─── */
-.legacy-section{padding:clamp(72px,9vw,120px) 0;background:var(--mist)}
+.legacy-section{padding:clamp(52px,7vw,96px) 0;background:var(--mist)}
 .legacy-header{text-align:center;margin-bottom:72px}
 .legacy-timeline{position:relative}
 .legacy-timeline::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:1px;transform:translateX(-50%);background:linear-gradient(180deg,transparent,rgba(43,143,163,0.35) 8%,rgba(43,143,163,0.35) 92%,transparent)}
@@ -194,7 +207,6 @@ a{text-decoration:none;color:inherit}
 .leg-chips{display:flex;flex-wrap:wrap;gap:8px}
 .leg-chip{display:flex;align-items:center;gap:8px;padding:5px 13px 5px 7px;background:var(--mist);border:1px solid rgba(43,143,163,0.18);border-radius:100px;font-size:11px;color:var(--slate)}
 
-/* Clean chip photo — pure circle */
 .leg-chip-photo{width:26px;height:26px;border-radius:50%;object-fit:cover;object-position:top center;flex-shrink:0;border:1.5px solid rgba(43,143,163,0.22);display:block}
 .leg-chip-init{width:26px;height:26px;border-radius:50%;flex-shrink:0;background:var(--fog);display:flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;font-size:8px;font-weight:700;color:var(--teal)}
 .leg-chip strong{color:var(--abyss);font-size:11.5px}
@@ -240,7 +252,6 @@ footer{background:var(--midnight);border-top:1px solid rgba(91,191,191,0.10);pad
       <img id="hero-logo-img" class="hero-logo" src="" alt="ZALC Logo">
     </div>
     <div class="hero-badge">
-      <div class="hbdot"><i class="fas fa-microscope"></i></div>
       <span>Zoologist Association of Loyola College</span>
     </div>
     <span id="hero-ay" class="hero-ay"></span>
@@ -259,7 +270,7 @@ footer{background:var(--midnight);border-top:1px solid rgba(91,191,191,0.10);pad
 <section class="about-section" id="about">
   <div class="container">
     <div class="about-grid">
-      <div>
+      <div class="reveal-left">
         <h2 class="about-headline">About <em>ZALC</em> &amp;<br>Our Department</h2>
         <p class="about-body">The Zoologist Association of Loyola College (ZALC) is the student association of the PG &amp; Research Department of Advanced Zoology &amp; Biotechnology, Loyola College (Autonomous), Chennai – 600 034.
 
@@ -275,7 +286,7 @@ Loyola College (Autonomous), established in 1925 by the Society of Jesus, is a N
           <div class="stat-card"><div class="stat-num">DBT <i class="fas fa-star" style="font-size:14px"></i></div><div class="stat-label">Star College</div></div>
         </div>
       </div>
-      <div>
+      <div class="reveal-right">
         <div class="pillars">
           <div class="pillar"><div class="pillar-icon"><i class="fas fa-flask"></i></div><div class="pillar-content"><h4>Research Excellence</h4><p>State-of-the-art laboratories for molecular biology, biotechnology, environmental science, and wildlife research enabling students to engage with frontier science.</p></div></div>
           <div class="pillar"><div class="pillar-icon"><i class="fas fa-leaf"></i></div><div class="pillar-content"><h4>Environmental Stewardship</h4><p>ZALC fosters awareness of biodiversity conservation and ecological responsibility through nature camps, workshops and field-based symposia.</p></div></div>
@@ -291,21 +302,21 @@ Loyola College (Autonomous), established in 1925 by the Society of Jesus, is a N
 <!-- LEADERSHIP -->
 <section class="leadership-section" id="leadership">
   <div class="container">
-    <div class="leadership-header">
+    <div class="leadership-header reveal">
       <div class="section-eyebrow center" style="justify-content:center">
         <span class="line"></span><i class="fas fa-crown" style="color:var(--gold)"></i> Our Leadership <span class="line r"></span>
       </div>
       <h2 class="section-title center">The <em>Pillars</em> of ZALC</h2>
       <p class="section-sub center" id="leader-ay-sub"></p>
     </div>
-    <div class="leaders-grid" id="leadership-grid"></div>
+    <div class="leaders-grid reveal" id="leadership-grid"></div>
   </div>
 </section>
 
 <!-- MEMBERS -->
 <section class="members-section" id="members">
   <div class="container" style="position:relative">
-    <div class="members-header">
+    <div class="members-header reveal">
       <div class="section-eyebrow" style="justify-content:center">
         <span class="line" style="background:linear-gradient(90deg,rgba(91,191,191,0.35),transparent)"></span>
         <i class="fas fa-users" style="color:var(--glacier)"></i>
@@ -315,14 +326,14 @@ Loyola College (Autonomous), established in 1925 by the Society of Jesus, is a N
       <h2 class="section-title white center">The <em>Team</em></h2>
       <p class="section-sub white center" id="members-ay-sub"></p>
     </div>
-    <div class="members-grid" id="members-grid"></div>
+    <div class="members-grid reveal" id="members-grid"></div>
   </div>
 </section>
 
 <!-- DEPARTMENT -->
 <section class="dept-strip" id="department">
   <div class="container dept-inner">
-    <div class="center">
+    <div class="center reveal">
       <div class="section-eyebrow" style="justify-content:center;color:rgba(91,191,191,0.7)">
         <span class="line"></span><i class="fas fa-dna"></i> Department Profile <span class="line r"></span>
       </div>
@@ -330,7 +341,7 @@ Loyola College (Autonomous), established in 1925 by the Society of Jesus, is a N
       <p class="section-sub white">PG &amp; Research Department · Loyola College (Autonomous), Chennai</p>
     </div>
     <div class="dept-grid">
-      <div>
+      <div class="reveal-left">
         <div class="dept-card">
           <div class="dept-card-icon-row"><div class="dci"><i class="fas fa-flask"></i></div><div><h3>Department Heritage</h3><div class="sub">Established 1948 · 70+ Years of Excellence</div></div></div>
           <p>The Department of Natural Sciences was started in 1948 at Loyola College. A full-fledged Department of Zoology was established in 1948 offering B.Sc. Zoology. Over six decades, it has grown into the PG &amp; Research Department of Advanced Zoology &amp; Biotechnology — a nationally recognised centre for life-science education and research.</p>
@@ -342,7 +353,7 @@ Loyola College (Autonomous), established in 1925 by the Society of Jesus, is a N
           </ul>
         </div>
       </div>
-      <div>
+      <div class="reveal-right">
         <div class="dept-card">
           <div class="dept-card-icon-row"><div class="dci"><i class="fas fa-university"></i></div><div><h3>Loyola College</h3><div class="sub">Autonomous · Est. 1925 · NAAC A+++</div></div></div>
           <p>Loyola College (Autonomous), established in July 1925 by the Society of Jesus, stands as a premier institution of higher learning in India. The only college in India ranked in the Top 10 in Arts, Science and Commerce simultaneously by India Today. Celebrating its centenary in 2024–25.</p>
@@ -366,19 +377,19 @@ Loyola College (Autonomous), established in 1925 by the Society of Jesus, is a N
 <!-- LEGACY -->
 <section class="legacy-section" id="legacy">
   <div class="container">
-    <div class="legacy-header">
+    <div class="legacy-header reveal">
       <div class="section-eyebrow" style="justify-content:center"><span class="line"></span><i class="fas fa-scroll"></i> The Chronicles <span class="line r"></span></div>
       <h2 class="section-title center">ZALC <em>Legacy Wall</em></h2>
       <p class="section-sub center">Every chapter of our association — its name, its theme, its spirit — etched in history.</p>
     </div>
-    <div class="legacy-timeline" id="legacy-timeline"></div>
+    <div class="legacy-timeline reveal" id="legacy-timeline"></div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
-    <div class="footer-top">
+    <div class="footer-top reveal">
       <div>
         <div class="fbrand-logo">
           <img id="footer-logo" src="" alt="ZALC" style="display:none">
@@ -401,7 +412,7 @@ Loyola College (Autonomous), established in 1925 by the Society of Jesus, is a N
         <a href="https://www.loyolacollege.edu" target="_blank"><i class="fas fa-external-link-alt" style="margin-right:7px;opacity:.4"></i>Loyola College</a>
       </div>
     </div>
-    <div class="footer-bottom">
+    <div class="footer-bottom reveal">
       <p class="fcopy">© <span id="yr"></span> Zoologist Association of Loyola College · Loyola College (Autonomous), Chennai</p>
       <div class="faccr"><span class="acc-tag">NAAC A+++</span><span class="acc-tag">DBT Star</span><span class="acc-tag">Est. 1925</span></div>
     </div>
@@ -434,6 +445,14 @@ function spawnParticles(){
     c.appendChild(p);
   }
 }
+
+/* ── SCROLL REVEAL OBSERVER FROM REFERENCE ── */
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 80);
+  });
+}, { threshold: 0.07, rootMargin: '0px 0px -30px 0px' });
+document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => observer.observe(el));
 
 window.addEventListener('scroll',()=>{document.getElementById('btt').classList.toggle('show',window.scrollY>400)});
 document.getElementById('yr').textContent=new Date().getFullYear();
@@ -571,6 +590,9 @@ async function init(){
     [...infoRows].reverse().forEach((row,idx)=>{
       lt.appendChild(buildLegacy(row,members,idx,row['Academic Year']===latestAY));
     });
+
+    /* Re-evaluate elements created dynamically for reveal animations */
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => observer.observe(el));
 
     spawnParticles();
   }catch(err){
